@@ -26,7 +26,6 @@ export default async function handler(req, res) {
         if (blob) {
             const response = await fetch(blob.downloadUrl);
             const text = await response.text();
-            res.setHeader("Content-Type", "application/lua");
             res.status(200).send(atob(text));
         } else {
             res.status(500).send("Internal Server Error");
