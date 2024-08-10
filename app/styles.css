@@ -1,0 +1,178 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Raleway:wght@400;700&family=Lato:wght@300;400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    margin: 0;
+    font-family: "Lato", sans-serif;
+    color: #e0e0e0;
+    background-color: #202021;
+    user-select: none;
+}
+
+.top-bar {
+    @apply bg-[#1e1e1f] p-4 shadow-md;
+    font-family: "Montserrat", sans-serif;
+}
+
+.top-bar-content {
+    @apply flex items-center justify-between max-w-7xl mx-auto;
+}
+
+.icon {
+    @apply rounded-full;
+}
+
+.nav-links {
+    @apply flex gap-5;
+}
+
+.nav-links a {
+    @apply text-gray-200 no-underline font-bold transition-colors;
+    font-family: "Montserrat", sans-serif;
+}
+
+.nav-links a:hover {
+    @apply text-gray-400;
+}
+
+.main-content {
+    @apply max-w-4xl mx-auto p-5 text-center;
+    font-family: "Lato", sans-serif;
+}
+
+.about-me-section,
+.projects-section,
+.contact-section {
+    @apply bg-white/10 rounded-lg p-5 backdrop-blur-sm shadow-lg text-center mx-auto;
+    font-family: "Lato", sans-serif;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.about-me-section {
+    @apply mb-6;
+}
+
+.about-me-section p {
+    @apply text-lg;
+}
+
+.projects-section {
+    @apply mb-6;
+}
+
+.projects-container {
+    @apply flex flex-wrap justify-center gap-5;
+}
+
+.project-card {
+    @apply bg-white/20 rounded-lg p-5 shadow-lg flex flex-col items-center text-center min-w-[300px] max-w-[calc(100%/3-20px)];
+}
+
+.project-card a,
+.project-card h3 {
+    @apply text-white no-underline font-bold text-xl;
+    font-family: "Montserrat", sans-serif;
+}
+
+.project-description {
+    @apply max-w-[200px] text-center;
+}
+
+.contact-info {
+    @apply mt-6;
+}
+
+.contact-info p {
+    @apply text-base;
+}
+
+.contact-info i {
+    @apply text-xl mr-2 text-white;
+}
+
+.contact-info span,
+.contact-info a {
+    @apply ml-1;
+}
+
+.contact-info a {
+    @apply text-white no-underline;
+}
+
+.contact-info a:hover {
+    @apply text-gray-400;
+}
+
+.underline-animation {
+    @apply no-underline font-semibold relative inline-block transition-colors;
+    position: relative;
+}
+
+.underline-animation::after {
+    content: "";
+    display: block;
+    height: 1px;
+    background: #fff;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    transform: translateX(-50%);
+    transition: width 0.3s;
+}
+
+.underline-animation:hover {
+    @apply text-white;
+    cursor: pointer;
+}
+
+.underline-animation:hover::after {
+    width: 100%;
+}
+
+.rounded-button {
+    @apply bg-[#450778] text-white border-none rounded-lg px-6 py-3 text-lg cursor-pointer transition-colors backdrop-blur-sm inline-block;
+    font-family: "Montserrat", sans-serif;
+}
+
+.rounded-button:hover {
+    @apply bg-gray-400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @apply font-bold;
+    font-family: "Montserrat", sans-serif;
+}
+
+h1 {
+    @apply text-2xl;
+}
+
+h2 {
+    @apply text-xl;
+}
+
+h3 {
+    @apply text-lg;
+}
+
+h4 {
+    @apply text-base;
+}
+
+h5 {
+    @apply text-sm;
+}
+
+h6 {
+    @apply text-xs;
+}
