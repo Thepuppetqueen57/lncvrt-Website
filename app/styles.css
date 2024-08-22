@@ -5,22 +5,14 @@
 @tailwind utilities;
 
 body {
-    margin: 0;
+    @apply text-[#e0e0e0] bg-[#121212] select-none m-0;
     font-family: "Lato", sans-serif;
-    color: #e0e0e0;
-    background-color: #121212;
-    user-select: none;
 }
 
 .top-bar {
+    @apply w-[65%] border shadow-[0px_0px_8px_8px_rgba(15,15,15,0.8)] items-center mx-auto my-[15px] rounded-[20px] border-solid border-[#333];
     @apply bg-[#1e1e1e] p-4 shadow-md;
     font-family: "Montserrat", sans-serif;
-    margin: 15px auto;
-    width: 65%;
-    border: 1px solid #333;
-    border-radius: 20px;
-    box-shadow: 0px 0px 8px 8px rgba(15, 15, 15, 0.8);
-    align-items: center;
 }
 
 .top-bar-content {
@@ -52,13 +44,9 @@ body {
 .about-me-section,
 .projects-section,
 .contact-section {
+    @apply w-[90%] max-w-[1200px] border shadow-[0px_0px_8px_8px_rgba(15,15,15,0.8)] rounded-2xl border-solid border-[#333];
     @apply bg-[#1e1e1e] p-5 backdrop-blur-sm shadow-lg text-center mx-auto;
     font-family: "Lato", sans-serif;
-    width: 90%;
-    max-width: 1200px;
-    border: 1px solid #333;
-    border-radius: 16px;
-    box-shadow: 0px 0px 8px 8px rgba(15, 15, 15, 0.8);
 }
 
 .about-me-section {
@@ -78,10 +66,8 @@ body {
 }
 
 .project-card {
+    @apply border shadow-[0px_0px_8px_8px_rgba(25,25,25,0.8)] rounded-2xl border-solid border-[#333];
     @apply bg-[#323232] p-5 shadow-lg flex flex-col items-center text-center min-w-[300px] max-w-[calc(100%/3-20px)];
-    border: 1px solid #333;
-    border-radius: 16px;
-    box-shadow: 0px 0px 8px 8px rgba(25, 25, 25, 0.8);
 }
 
 .project-card a,
@@ -120,30 +106,16 @@ body {
 }
 
 .underline-animation {
+    @apply relative after:content-[""] after:block after:h-px after:absolute after:w-0 after:-translate-x-2/4 after:transition-[width] after:duration-[0.3s] after:left-2/4 after:bottom-0 hover:cursor-pointer hover:after:w-full;
     @apply no-underline font-semibold relative inline-block transition-colors;
-    position: relative;
 }
 
 .underline-animation::after {
-    content: "";
-    display: block;
-    height: 1px;
     background: #fff;
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    width: 0;
-    transform: translateX(-50%);
-    transition: width 0.3s;
 }
 
 .underline-animation:hover {
     @apply text-white;
-    cursor: pointer;
-}
-
-.underline-animation:hover::after {
-    width: 100%;
 }
 
 .rounded-button {
