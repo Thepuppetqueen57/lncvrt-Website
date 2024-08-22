@@ -12,7 +12,7 @@ const Home = () => {
         <div className="projects-container">
           <div className="project-card">
             <h3>
-              <a href="https://github.com/Lncvrt/AlwaysNightVision" target="_blank" rel="noopener noreferrer" className='underline-animation'>AlwaysNightVision</a>
+              <a draggable="false" href="https://github.com/Lncvrt/AlwaysNightVision" target="_blank" rel="noopener noreferrer" className='underline-animation'>AlwaysNightVision</a>
             </h3>
             <div className="project-description">
               <p>A simple Minecraft Plugin for Spigot that gives you the night vision effect automatically when joining.</p>
@@ -20,7 +20,7 @@ const Home = () => {
           </div>
           <div className="project-card">
             <h3>
-              <a href="https://github.com/Lncvrt/WorldGuardBetaUtils" target="_blank" rel="noopener noreferrer" className='underline-animation'>WorldGuardBetaUtils</a>
+              <a draggable="false" href="https://github.com/Lncvrt/WorldGuardBetaUtils" target="_blank" rel="noopener noreferrer" className='underline-animation'>WorldGuardBetaUtils</a>
             </h3>
             <div className="project-description">
               <p>A beta 1.7.3 bukkit plugin that adds some features to WorldGuard as seen in the modern versions.</p>
@@ -28,7 +28,7 @@ const Home = () => {
           </div>
           <div className="project-card">
             <h3>
-              <a href="https://github.com/Lncvrt/ColorPicker" target="_blank" rel="noopener noreferrer" className='underline-animation'>ColorPicker</a>
+              <a draggable="false" href="https://github.com/Lncvrt/ColorPicker" target="_blank" rel="noopener noreferrer" className='underline-animation'>ColorPicker</a>
             </h3>
             <div className="project-description">
               <p>A windows app made to find colors on your screen with the exact hex/hsl/rgb/cmyk values that you want (Written in C#).</p>

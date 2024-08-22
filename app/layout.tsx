@@ -23,12 +23,12 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         <body>
           <header className="top-bar">
             <div className="top-bar-content">
-              <a href="/">
+              <a draggable="false" href="/">
                 <Image src="/favicon.png" alt="Icon" className="icon" width={40} height={40} />
               </a>
               <nav className="nav-links">
-                <a href="/" className='underline-animation'>Home</a>
-                <a href="/contacts" className='underline-animation'>Socials & Contacts</a>
+                <a draggable="false" href="/" className='underline-animation'>Home</a>
+                <a draggable="false" href="/contacts" className='underline-animation'>Socials & Contacts</a>
               </nav>
             </div>
           </header>
