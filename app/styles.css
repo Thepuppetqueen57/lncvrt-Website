@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Raleway:wght@400;700&family=Lato:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -6,13 +6,12 @@
 
 body {
     @apply text-[#e0e0e0] bg-[#121212] select-none m-0;
-    font-family: "Lato", sans-serif;
+    font-family: "Inter", sans-serif;
 }
 
 .top-bar {
     @apply w-[65%] border shadow-[0px_0px_8px_8px_rgba(15,15,15,0.8)] items-center mx-auto my-[15px] rounded-[20px] border-solid border-[#323232];
     @apply bg-[#1e1e1e] p-4 shadow-md;
-    font-family: "Montserrat", sans-serif;
 }
 
 .top-bar-content {
@@ -29,7 +28,6 @@ body {
 
 .nav-links a {
     @apply text-gray-200 no-underline font-bold transition-colors;
-    font-family: "Montserrat", sans-serif;
 }
 
 .nav-links a:hover {
@@ -38,7 +36,6 @@ body {
 
 .main-content {
     @apply max-w-4xl mx-auto p-5 text-center;
-    font-family: "Lato", sans-serif;
 }
 
 .about-me-section,
@@ -46,7 +43,6 @@ body {
 .contact-section {
     @apply w-[90%] max-w-[1200px] border shadow-[0px_0px_8px_8px_rgba(15,15,15,0.8)] rounded-2xl border-solid border-[#323232];
     @apply bg-[#1e1e1e] p-5 backdrop-blur-sm shadow-lg text-center mx-auto;
-    font-family: "Lato", sans-serif;
 }
 
 .about-me-section {
@@ -73,7 +69,6 @@ body {
 .project-card a,
 .project-card h3 {
     @apply text-white no-underline font-bold text-xl;
-    font-family: "Montserrat", sans-serif;
 }
 
 .project-description {
@@ -120,7 +115,6 @@ body {
 
 .rounded-button {
     @apply bg-[#450778] text-white border-none rounded-lg px-6 py-3 text-lg cursor-pointer transition-colors backdrop-blur-sm inline-block;
-    font-family: "Montserrat", sans-serif;
 }
 
 .rounded-button:hover {
@@ -134,7 +128,6 @@ h4,
 h5,
 h6 {
     @apply font-bold;
-    font-family: "Montserrat", sans-serif;
 }
 
 h1 {
