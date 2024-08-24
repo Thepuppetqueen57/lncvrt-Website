@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import './styles.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
@@ -29,7 +30,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
               <nav className="nav-links">
                 <a draggable="false" href="/" className='underline-animation'>Home</a>
                 <a draggable="false" href="/contacts" className='underline-animation'>Socials & Contacts</a>
-                <a draggable="false" href="/discord" className='underline-animation'>Discord</a>
+                <Link draggable={false} href="/discord" className='underline-animation'>Discord</Link>
               </nav>
             </div>
           </header>

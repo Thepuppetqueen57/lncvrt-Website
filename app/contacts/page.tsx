@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 const Contact = () => {
   const [isShiftPressed, setIsShiftPressed] = useState(false);
@@ -39,7 +40,7 @@ const Contact = () => {
           </p>
           <p>
             <i className="fab fa-discord"></i>
-            Discord Server: <a draggable="false" href="/discord" className="underline-animation">click here</a>&nbsp;
+            Discord Server: <Link draggable={false} href="/discord" className='underline-animation'>click here</Link>&nbsp;
           </p>
           <p>
             <i className="fas fa-envelope"></i>
