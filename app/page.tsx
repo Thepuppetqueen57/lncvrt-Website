@@ -40,6 +40,14 @@ const Home = () => {
               <p>A beta 1.7.3 bukkit plugin that adds Keep Inventory to the game. (NOT AVAILABLE FOR DOWNLOAD)</p>
             </div>
           </div>
+          <div className="project-card">
+            <h3>
+              <a draggable="false" href="https://github.com/Lncvrt/chat-clear-plus" target="_blank" rel="noopener noreferrer" className='underline-animation'>ChatClear+</a>
+            </h3>
+            <div className="project-description">
+              <p>A simple Fabric mod designed to enhance the way servers clear chat messages, improving the normal method of flooding the chat with empty newlines.</p>
+            </div>
+          </div>
         </div>
       </section>
     </div>
