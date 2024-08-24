@@ -29,6 +29,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
               <nav className="nav-links">
                 <a draggable="false" href="/" className='underline-animation'>Home</a>
                 <a draggable="false" href="/contacts" className='underline-animation'>Socials & Contacts</a>
+                <a draggable="false" href="/discord" className='underline-animation'>Discord</a>
               </nav>
             </div>
           </header>

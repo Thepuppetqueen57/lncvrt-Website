@@ -38,6 +38,10 @@ const Contact = () => {
             Discord: <span className="underline-animation">@lncvrt</span>&nbsp;(I will reply quickly)
           </p>
           <p>
+            <i className="fab fa-discord"></i>
+            Discord Server: <a draggable="false" href="/discord" className="underline-animation">click here</a>&nbsp;
+          </p>
+          <p>
             <i className="fas fa-envelope"></i>
             Email: <a draggable="false" href="mailto:lncvrtreal@gmail.com" className="underline-animation">lncvrtreal@gmail.com</a>&nbsp;(May take longer to reply)
           </p>

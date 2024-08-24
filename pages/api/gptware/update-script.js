@@ -1,77 +1,41 @@
 import { put, del, list } from "@vercel/blob";
 
 export default async function handler(req, res) {
-    if (req.method === "POST") {
+    if (req.method !== "POST") {
+        res.setHeader("Allow", ["POST"]);
+        return res.status(405).json({ message: `Method ${req.method} Not Allowed` });
+    }
+
+    try {
         const { content } = req.body;
         const authorization = req.headers.authorization;
-        const type = req.headers.type;
+        const type = req.headers.type || "free";
 
-        if (
-            content == null ||
-            authorization == null ||
-            authorization !== process.env.GPTWARE_KEY
-        ) {
-            return res.status(400).send(
-                JSON.stringify(
-                    {
-                        message:
-                            "Authorization Key is invalid or content is not provided",
-                    },
-                    null,
-                    4
-                )
-            );
+        if (!content || !authorization || authorization !== process.env.GPTWARE_KEY) {
+            return res.status(400).json({
+                message: "Authorization Key is invalid or content is not provided",
+            });
         }
 
+        const validTypes = {
+            free: "gptware/free-script.lua",
+            orion: "gptware/script-orion.lua",
+            lt2: "gptware/script-lt2.lua",
+        };
+
+        const scriptPath = validTypes[type] || validTypes.free;
         const blobList = await list();
-        let blob;
-        if (type === "orion") {
-            blob = blobList.blobs.find(
-                (blob) => blob.pathname === "gptware/script-orion.lua"
-            );
-        } else if (type === "lt2") {
-            blob = blobList.blobs.find(
-                (blob) => blob.pathname === "gptware/script-lt2.lua"
-            );
-        } else {
-            blob = blobList.blobs.find(
-                (blob) => blob.pathname === "gptware/free-script.lua"
-            );
+        const existingBlob = blobList.blobs.find((blob) => blob.pathname === scriptPath);
+
+        if (existingBlob) {
+            await del(existingBlob.url);
         }
 
-        if (blob) {
-            await del(blob.url);
-        }
+        await put(scriptPath, content, { access: "public" });
 
-        if (type === "orion") {
-            await put("gptware/script-orion.lua", content, {
-                access: "public",
-            });
-        } else if (type === "lt2") {
-            await put("gptware/script-lt2.lua", content, {
-                access: "public",
-            });
-        } else {
-            await put("gptware/free-script.lua", content, {
-                access: "public",
-            });
-        }
-
-        return res
-            .status(200)
-            .send(
-                JSON.stringify({ message: "Script has been updated!" }, null, 4)
-            );
-    } else {
-        res.setHeader("Allow", ["POST"]);
-        return res
-            .status(405)
-            .send(
-                JSON.stringify(
-                    { message: `Method ${req.method} Not Allowed` },
-                    null,
-                    4
-                )
-            );
+        return res.status(200).json({ message: "Script has been updated!" });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: "Internal Server Error" });
     }
 }
