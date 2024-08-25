@@ -35,7 +35,7 @@ body {
 }
 
 .main-content {
-    @apply max-w-4xl mx-auto p-5 text-center;
+    @apply max-w-4xl mx-auto p-5 text-center flex-grow;
 }
 
 .about-me-section,
@@ -152,4 +152,9 @@ h5 {
 
 h6 {
     @apply text-xs;
+}
+
+.footer {
+  @apply absolute -translate-x-2/4 mb-[18px] left-2/4 bottom-0;
+  @apply mx-auto w-[25%] border shadow-[0px_0px_8px_8px_rgba(15,15,15,0.8)] rounded-[20px] border-solid border-[#323232] bg-[#1e1e1e] p-4 text-center;
 }

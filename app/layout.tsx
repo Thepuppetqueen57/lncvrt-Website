@@ -5,6 +5,8 @@ import './styles.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <>
       <html lang="en">
@@ -37,6 +39,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           <main className="main-content">
             {children}
           </main>
+          <footer className="footer">
+            <p>&copy; {currentYear} Lncvrt. All rights reserved.</p>
+          </footer>
         </body>
       </html>
     </>
