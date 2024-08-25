@@ -1,6 +1,39 @@
-import React from 'react';
+"use client";
+
+import React, { useState, useEffect } from 'react';
 
 const Home = () => {
+  const [isGitHubLinksToggled, setisGitHubLinksToggled] = useState(false);
+  const [shiftKeyPressedCount, setShiftKeyPressedCount] = useState(0);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Shift') {
+        setShiftKeyPressedCount(prevCount => prevCount + 1);
+      }
+    };
+
+    const handleKeyUp = (e: KeyboardEvent) => {
+      if (e.key === 'Shift') {
+        setShiftKeyPressedCount(0);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('keyup', handleKeyUp);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('keyup', handleKeyUp);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (shiftKeyPressedCount === 1) {
+      setisGitHubLinksToggled(prevToggled => !prevToggled);
+    }
+  }, [shiftKeyPressedCount]);
+
   return (
     <div className="container">
       <section className="about-me-section" id="about">
@@ -12,7 +45,7 @@ const Home = () => {
         <div className="projects-container">
           <div className="project-card">
             <h3>
-              <a draggable="false" href="https://github.com/Lncvrt/AlwaysNightVision" target="_blank" rel="noopener noreferrer" className='underline-animation'>AlwaysNightVision</a>
+              <a draggable="false" href={isGitHubLinksToggled ? "https://github.com/Lncvrt/AlwaysNightVision" : "https://modrinth.com/plugin/anv"} target="_blank" rel="noopener noreferrer" className='underline-animation'>AlwaysNightVision</a>
             </h3>
             <div className="project-description">
               <p>A simple Minecraft Plugin for Spigot that gives you the night vision effect automatically when joining.</p>
@@ -42,13 +75,14 @@ const Home = () => {
           </div>
           <div className="project-card">
             <h3>
-              <a draggable="false" href="https://github.com/Lncvrt/chat-clear-plus" target="_blank" rel="noopener noreferrer" className='underline-animation'>ChatClear+</a>
+              <a draggable="false" href={isGitHubLinksToggled ? "https://github.com/Lncvrt/chat-clear-plus" : "https://modrinth.com/plugin/ccp"} target="_blank" rel="noopener noreferrer" className='underline-animation'>ChatClear+</a>
             </h3>
             <div className="project-description">
               <p>A simple Fabric mod designed to enhance the way servers clear chat messages, improving the normal method of flooding the chat with empty newlines.</p>
             </div>
           </div>
         </div>
+        {isGitHubLinksToggled && <p style={{ marginTop: "25px" }}>GitHub links for projects enabled.</p>}
       </section>
     </div>
   );
