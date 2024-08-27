@@ -68,6 +68,10 @@ const Contact = () => {
             <i className="fab fa-steam"></i>
             Steam: <a draggable="false" href="https://steamcommunity.com/id/lncvrt/" className="underline-animation">lncvrt</a>
           </p>
+          <p>
+            <i className="fab fa-instagram"></i>
+            Instagram: <a draggable="false" href="https://www.instagram.com/lncvrtreal/" className="underline-animation">lncvrtreal</a>
+          </p>
         </div>
       </section>
     </div>
