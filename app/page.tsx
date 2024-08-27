@@ -56,7 +56,7 @@ const Home = () => {
               <a draggable="false" href="https://github.com/Lncvrt/WorldGuardBetaUtils" target="_blank" rel="noopener noreferrer" className='underline-animation'>WorldGuardBetaUtils</a>
             </h3>
             <div className="project-description">
-              <p>A beta 1.7.3 bukkit plugin that adds some features to WorldGuard as seen in the modern versions.</p>
+              <p>A Beta 1.7.3 plugin that adds some features to WorldGuard as seen in the modern versions.</p>
             </div>
           </div>
           <div className="project-card">
@@ -64,13 +64,13 @@ const Home = () => {
               <a draggable="false" href="https://github.com/Lncvrt/ColorPicker" target="_blank" rel="noopener noreferrer" className='underline-animation'>ColorPicker</a>
             </h3>
             <div className="project-description">
-              <p>A windows app made to find colors on your screen with the exact hex/hsl/rgb/cmyk values that you want (Written in C#).</p>
+              <p>A Windows App made to find colors on your screen with the exact hex/hsl/rgb/cmyk values that you want.</p>
             </div>
           </div>
           <div className="project-card">
             <h3>BetaKeepInventory</h3>
             <div className="project-description">
-              <p>A beta 1.7.3 bukkit plugin that adds Keep Inventory to the game. (NOT AVAILABLE FOR DOWNLOAD)</p>
+              <p>A Beta 1.7.3 plugin that adds Keep Inventory to the game. (NOT AVAILABLE FOR DOWNLOAD)</p>
             </div>
           </div>
           <div className="project-card">
