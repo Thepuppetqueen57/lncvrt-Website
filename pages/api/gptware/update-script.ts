@@ -1,15 +1,20 @@
+import { NextApiRequest, NextApiResponse } from "next";
 import { put, del, list } from "@vercel/blob";
 
-export default async function handler(req, res) {
+interface RequestBody {
+    content: string;
+}
+
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== "POST") {
         res.setHeader("Allow", ["POST"]);
         return res.status(405).json({ message: `Method ${req.method} Not Allowed` });
     }
 
     try {
-        const { content } = req.body;
-        const authorization = req.headers.authorization;
-        const type = req.headers.type || "free";
+        const { content }: RequestBody = req.body;
+        const authorization: string | undefined = req.headers.authorization as string;
+        const type: string = req.headers.type as string || "free";
 
         if (!content || !authorization || authorization !== process.env.GPTWARE_KEY) {
             return res.status(400).json({
@@ -17,13 +22,13 @@ export default async function handler(req, res) {
             });
         }
 
-        const validTypes = {
+        const validTypes: { [key: string]: string } = {
             free: "gptware/free-script.lua",
             orion: "gptware/script-orion.lua",
             lt2: "gptware/script-lt2.lua",
         };
 
-        const scriptPath = validTypes[type] || validTypes.free;
+        const scriptPath: string = validTypes[type] || validTypes.free;
         const blobList = await list();
         const existingBlob = blobList.blobs.find((blob) => blob.pathname === scriptPath);
 
