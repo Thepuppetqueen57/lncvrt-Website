@@ -10,16 +10,16 @@ body {
 }
 
 .top-bar {
-    @apply w-[65%] border shadow-[0px_0px_8px_8px_rgba(15,15,15,0.8)] items-center mx-auto my-[15px] rounded-[20px] border-solid border-[#323232];
-    @apply bg-[#1e1e1e] p-4 shadow-md;
+    @apply w-[calc(100%-32px)] md:w-[65%] border shadow-[0px_0px_8px_8px_rgba(15,15,15,0.8)] items-center mx-auto my-[15px] rounded-[20px] border-solid border-[#323232];
+    @apply bg-[#1e1e1e] p-4 md:px-8 shadow-md;
 }
 
 .top-bar-content {
-    @apply flex items-center justify-between max-w-7xl mx-auto;
+    @apply flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto;
 }
 
 .icon {
-    @apply rounded-full;
+    @apply rounded-full mb-4 md:mb-0 mr-4;
 }
 
 .nav-links {
