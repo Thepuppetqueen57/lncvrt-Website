@@ -3,13 +3,18 @@ import Image from 'next/image';
 import Link from 'next/link';
 import './styles.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import { Inter } from 'next/font/google';
+
+const inter = Inter({
+  subsets: ['latin']
+});
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const currentYear = new Date().getFullYear();
 
   return (
     <>
-      <html lang="en">
+      <html lang="en" className={inter.className}>
         <head>
           <meta charSet="UTF-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
