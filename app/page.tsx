@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 
 const Home = () => {
-  const [isGitHubLinksToggled, setisGitHubLinksToggled] = useState(false);
+  const [isGitHubLinksToggled, setIsGitHubLinksToggled] = useState(false);
   const [shiftKeyPressedCount, setShiftKeyPressedCount] = useState(0);
 
   useEffect(() => {
@@ -30,7 +30,7 @@ const Home = () => {
 
   useEffect(() => {
     if (shiftKeyPressedCount === 1) {
-      setisGitHubLinksToggled(prevToggled => !prevToggled);
+      setIsGitHubLinksToggled(prevToggled => !prevToggled);
     }
   }, [shiftKeyPressedCount]);
 
