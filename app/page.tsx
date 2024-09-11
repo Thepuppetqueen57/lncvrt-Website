@@ -1,10 +1,42 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const Home = () => {
   const [isGitHubLinksToggled, setIsGitHubLinksToggled] = useState(false);
   const [shiftKeyPressedCount, setShiftKeyPressedCount] = useState(0);
+  const [projects, setProjects] = useState<any[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const hasFetched = useRef(false);
+
+  const fetchGitHubProjects = async () => {
+    try {
+      const response = await fetch('https://api.github.com/users/Lncvrt/repos');
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "No error was provided");
+      }
+
+      const filteredProjects = data.filter(
+        (repo: any) => !repo.description?.startsWith('[H]')
+      );
+
+      setProjects(filteredProjects);
+    } catch (error: any) {
+      setError(`Failed to get projects: ${error.message || "No error was provided"}`);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (!hasFetched.current) {
+      fetchGitHubProjects();
+      hasFetched.current = true;
+    }
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -38,49 +70,23 @@ const Home = () => {
     <div className="container">
       <section className="about-me-section" id="about">
         <h2>Hey, I&apos;m Lncvrt!</h2>
-        <p>I&apos;m a Java developer who makes Minecraft plugins and mods. I&apos;m busy right now, so I might not get back to you right away if you reach out.</p>  
+        <p>I&apos;m a Java developer who makes Minecraft plugins and mods. I&apos;m busy right now, so I might not get back to you right away if you reach out.</p>
       </section>
       <section className="projects-section" id="projects">
         <h2 style={{ marginBottom: '18px' }}>My Projects</h2>
         <div className="projects-container">
-          <div className="project-card">
-            <h3>
-              <a draggable="false" href={isGitHubLinksToggled ? "https://github.com/Lncvrt/AlwaysNightVision" : "https://modrinth.com/plugin/anv"} target="_blank" rel="noopener noreferrer" className='underline-animation'>AlwaysNightVision</a>
-            </h3>
-            <div className="project-description">
-              <p>A simple Minecraft Plugin for Spigot that gives you the night vision effect automatically when joining.</p>
-            </div>
-          </div>
-          <div className="project-card">
-            <h3>
-              <a draggable="false" href="https://github.com/Lncvrt/WorldGuardBetaUtils" target="_blank" rel="noopener noreferrer" className='underline-animation'>WorldGuardBetaUtils</a>
-            </h3>
-            <div className="project-description">
-              <p>A Beta 1.7.3 plugin that adds some features to WorldGuard as seen in the modern versions.</p>
-            </div>
-          </div>
-          <div className="project-card">
-            <h3>
-              <a draggable="false" href="https://github.com/Lncvrt/ColorPicker" target="_blank" rel="noopener noreferrer" className='underline-animation'>ColorPicker</a>
-            </h3>
-            <div className="project-description">
-              <p>A Windows App made to find colors on your screen with the exact hex/hsl/rgb/cmyk values that you want.</p>
-            </div>
-          </div>
-          <div className="project-card">
-            <h3>BetaKeepInventory</h3>
-            <div className="project-description">
-              <p>A Beta 1.7.3 plugin that adds Keep Inventory to the game. (NOT AVAILABLE FOR DOWNLOAD)</p>
-            </div>
-          </div>
-          <div className="project-card">
-            <h3>
-              <a draggable="false" href={isGitHubLinksToggled ? "https://github.com/Lncvrt/chat-clear-plus" : "https://modrinth.com/plugin/ccp"} target="_blank" rel="noopener noreferrer" className='underline-animation'>ChatClear+</a>
-            </h3>
-            <div className="project-description">
-              <p>A simple Fabric mod designed to enhance the way servers clear chat messages, improving the normal method of flooding the chat with empty newlines.</p>
-            </div>
-          </div>
+          {isLoading ? <p>Loading...</p> : error ? <p>{error}</p> : (
+            projects.map((project) => (
+              <div className="project-card" key={project.id}>
+                <h3>
+                  <a draggable="false" href={isGitHubLinksToggled && project.homepage ? project.homepage : project.html_url} target="_blank" rel="noopener noreferrer" className='underline-animation'>{project.name}</a>
+                </h3>
+                <div className="project-description">
+                  <p>{project.description}</p>
+                </div>
+              </div>
+            ))
+          )}
         </div>
         {isGitHubLinksToggled && <p style={{ marginTop: "25px" }}>GitHub links for projects enabled.</p>}
       </section>
