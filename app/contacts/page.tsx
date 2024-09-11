@@ -1,30 +1,30 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
 
 const Contact = () => {
   const [isShiftPressed, setIsShiftPressed] = useState(false);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Shift') {
+      if (e.key === "Shift") {
         setIsShiftPressed(true);
       }
     };
 
     const handleKeyUp = (e: KeyboardEvent) => {
-      if (e.key === 'Shift') {
+      if (e.key === "Shift") {
         setIsShiftPressed(false);
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    window.addEventListener('keyup', handleKeyUp);
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("keyup", handleKeyUp);
 
     return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      window.removeEventListener('keyup', handleKeyUp);
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("keyup", handleKeyUp);
     };
   }, []);
 
@@ -40,7 +40,7 @@ const Contact = () => {
           </p>
           <p>
             <i className="fab fa-discord"></i>
-            Discord Server: <Link draggable={false} href="/discord" className='underline-animation'>click here</Link>&nbsp;
+            Discord Server: <Link draggable={false} href="/discord" className="underline-animation">click here</Link>&nbsp;
           </p>
           <p>
             <i className="fas fa-envelope"></i>
@@ -48,9 +48,9 @@ const Contact = () => {
           </p>
           <p>Below this is socials. I will likely not reply there.</p>
           <p>
-            <i className={isShiftPressed ? 'fab fa-twitter' : 'fab fa-x-twitter'}></i>
-            {isShiftPressed ? ' Twitter: ' : ' X: '}
-            <a draggable="false" href='https://x.com/lncvrt' className="underline-animation">@lncvrt</a>
+            <i className={isShiftPressed ? "fab fa-twitter" : "fab fa-x-twitter"}></i>
+            {isShiftPressed ? " Twitter: " : " X: "}
+            <a draggable="false" href="https://x.com/lncvrt" className="underline-animation">@lncvrt</a>
           </p>
           <p>
             <i className="fab fa-reddit"></i>

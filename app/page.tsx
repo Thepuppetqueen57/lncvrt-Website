@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 
 const Home = () => {
   const [isGitHubLinksToggled, setIsGitHubLinksToggled] = useState(false);
@@ -12,7 +12,7 @@ const Home = () => {
 
   const fetchGitHubProjects = async () => {
     try {
-      const response = await fetch('https://api.github.com/users/Lncvrt/repos');
+      const response = await fetch("https://api.github.com/users/Lncvrt/repos");
       const data = await response.json();
 
       if (!response.ok) {
@@ -20,7 +20,7 @@ const Home = () => {
       }
 
       const filteredProjects = data.filter(
-        (repo: any) => !repo.description?.startsWith('[H]')
+        (repo: any) => !repo.description?.startsWith("[H]")
       );
 
       setProjects(filteredProjects);
@@ -40,23 +40,23 @@ const Home = () => {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Shift') {
+      if (e.key === "Shift") {
         setShiftKeyPressedCount(prevCount => prevCount + 1);
       }
     };
 
     const handleKeyUp = (e: KeyboardEvent) => {
-      if (e.key === 'Shift') {
+      if (e.key === "Shift") {
         setShiftKeyPressedCount(0);
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    window.addEventListener('keyup', handleKeyUp);
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("keyup", handleKeyUp);
 
     return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      window.removeEventListener('keyup', handleKeyUp);
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("keyup", handleKeyUp);
     };
   }, []);
 
@@ -73,13 +73,13 @@ const Home = () => {
         <p>I&apos;m a Java developer who makes Minecraft plugins and mods. I&apos;m busy right now, so I might not get back to you right away if you reach out.</p>
       </section>
       <section className="projects-section" id="projects">
-        <h2 style={{ marginBottom: '18px' }}>My Projects</h2>
+        <h2 style={{ marginBottom: "18px" }}>My Projects</h2>
         <div className="projects-container">
           {isLoading ? <p>Loading...</p> : error ? <p>{error}</p> : (
             projects.map((project) => (
               <div className="project-card" key={project.id}>
                 <h3>
-                  <a draggable="false" href={isGitHubLinksToggled && project.homepage ? project.html_url : project.homepage} target="_blank" rel="noopener noreferrer" className='underline-animation'>{project.name}</a>
+                  <a draggable="false" href={isGitHubLinksToggled && project.homepage ? project.html_url : project.homepage} target="_blank" rel="noopener noreferrer" className="underline-animation">{project.name}</a>
                 </h3>
                 <div className="project-description">
                   <p>{project.description}</p>

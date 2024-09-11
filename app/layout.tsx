@@ -1,12 +1,12 @@
-import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import './styles.css';
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import { Inter } from 'next/font/google';
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import "./styles.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import { Inter } from "next/font/google";
 
 const inter = Inter({
-  subsets: ['latin']
+  subsets: ["latin"]
 });
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -35,9 +35,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                 <Image src="/favicon.png" alt="Icon" className="icon" width={40} height={40} />
               </a>
               <nav className="nav-links">
-                <a draggable="false" href="/" className='underline-animation'>Home</a>
-                <a draggable="false" href="/contacts" className='underline-animation'>Socials & Contacts</a>
-                <Link draggable={false} href="/discord" className='underline-animation'>Discord</Link>
+                <a draggable="false" href="/" className="underline-animation">Home</a>
+                <a draggable="false" href="/contacts" className="underline-animation">Socials & Contacts</a>
+                <Link draggable={false} href="/discord" className="underline-animation">Discord</Link>
               </nav>
             </div>
           </header>
