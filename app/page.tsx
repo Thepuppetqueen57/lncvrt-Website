@@ -79,7 +79,7 @@ const Home = () => {
             projects.map((project) => (
               <div className="project-card" key={project.id}>
                 <h3>
-                  <a draggable="false" href={isGitHubLinksToggled && project.homepage ? project.homepage : project.html_url} target="_blank" rel="noopener noreferrer" className='underline-animation'>{project.name}</a>
+                  <a draggable="false" href={isGitHubLinksToggled && project.homepage ? project.html_url : project.homepage} target="_blank" rel="noopener noreferrer" className='underline-animation'>{project.name}</a>
                 </h3>
                 <div className="project-description">
                   <p>{project.description}</p>
