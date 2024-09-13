@@ -17,6 +17,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             free: "gptware/free-script.lua",
             orion: "gptware/script-orion.lua",
             lt2: "gptware/script-lt2.lua",
+            flamreon: "gptware/flameware-orion.lua",
         };
 
         if (typeof type !== 'string' || !validTypes[type]) {
