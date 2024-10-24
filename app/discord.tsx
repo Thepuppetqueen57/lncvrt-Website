@@ -132,7 +132,7 @@ const DiscordCard: React.FC = () => {
       case 3:
         return 'Watching'
       default:
-        return 'Unknown'
+        return
     }
   }
 
@@ -151,10 +151,6 @@ const DiscordCard: React.FC = () => {
         secs
       ).padStart(2, '0')}`
     }
-  }
-
-  const limitText = (input: string, limit: number): string => {
-    return input.length > limit ? input.substring(0, limit) + '...' : input
   }
 
   const renderActivities = () => {
@@ -190,7 +186,7 @@ const DiscordCard: React.FC = () => {
                   />
                   <div className='activity-info'>
                     <p className='activity-name'>
-                      {renderActivityType(activity.type)} {limitText(activity.name, 14)}
+                      {renderActivityType(activity.type)} {activity.name}
                     </p>
                     {activity.details && (
                       <p className='activity-details'>{activity.details}</p>
