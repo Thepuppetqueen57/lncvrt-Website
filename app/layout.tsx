@@ -19,7 +19,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           <meta charSet="UTF-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <title>Lncvrt&apos;s Website</title>
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" href="/favicon-rounded.ico" />
           <meta property="og:title" content="Lncvrt&apos;s Website" />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="http://www.lncvrt.xyz/" />
