@@ -138,7 +138,7 @@ const DiscordCard: React.FC = () => {
     <section className='discord-card-section' id='discord-card'>
       <div className='card-content'>
         {loading ? (
-          <p>Loading...</p>
+          <h1>Loading...</h1>
         ) : (
           <>
             <div className='icon-and-name'>
