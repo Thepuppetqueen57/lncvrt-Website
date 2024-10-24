@@ -31,12 +31,12 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         <body>
           <header className="top-bar">
             <div className="top-bar-content">
-              <a draggable="false" href="/">
+              <Link draggable={false} href="/">
                 <Image src="/favicon.png" alt="Icon" className="icon" width={40} height={40} />
-              </a>
+              </Link>
               <nav className="nav-links">
-                <a draggable="false" href="/" className="underline-animation">Home</a>
-                <a draggable="false" href="/contacts" className="underline-animation">Socials & Contacts</a>
+                <Link draggable={false} href="/" className="underline-animation">Home</Link>
+                <Link draggable={false} href="/contacts" className="underline-animation">Socials & Contacts</Link>
                 <Link draggable={false} href="/discord" className="underline-animation">Discord</Link>
               </nav>
             </div>
