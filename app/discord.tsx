@@ -171,7 +171,7 @@ const DiscordCard: React.FC = () => {
     return (
       <div className='activty-card'>
         <div className='activty-title'>Current Activities</div>
-        <div className='activty-info mt-[-16px]'>
+        <div className='activty-info mt-[-8px]'>
           {discordStatus.data.activities
             .filter(activity => activity.id !== 'spotify:1')
             .map(activity => (
