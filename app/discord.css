@@ -70,10 +70,11 @@
 }
 
 .small-activity-image {
-  @apply absolute w-6 h-6 border border-gray-300 rounded-[50%];
-  left: 42px;
-  top: 42px;
+  @apply absolute w-6 h-6 rounded-[50%];
+  left: 45px;
+  top: 55px;
   z-index: 1;
+  border: 2px solid #2e2e2e;
 }
 
 .large-activity-image {
