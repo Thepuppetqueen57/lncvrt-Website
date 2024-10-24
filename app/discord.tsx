@@ -198,7 +198,7 @@ const DiscordCard: React.FC = () => {
               <div className='user-info'>
                 <p className='discord-name'>
                   {status?.discord_user.global_name}
-                  <span className='text-gray-400 font-extralight ml-2'>
+                  <span className='text-gray-300 font-extralight ml-2'>
                     (@{status?.discord_user.username})
                   </span>
                 </p>

@@ -15,7 +15,7 @@
 }
 
 .discord-status {
-  @apply text-base text-green-400;
+  @apply text-base text-green-300;
 }
 
 .activty-card {
@@ -45,7 +45,7 @@
 
 .spotify-artist,
 .spotify-album {
-  @apply text-sm text-gray-400;
+  @apply text-sm text-gray-300;
 }
 
 .activities-list {
