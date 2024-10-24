@@ -18,17 +18,17 @@
   @apply text-base text-green-400;
 }
 
-.spotify-card {
+.activty-card {
   @apply bg-[#2e2e2e] p-4 rounded-lg mt-4;
   @apply text-left;
 }
 
-.spotify-title {
+.activty-title {
   @apply text-xl font-bold mb-2;
 }
 
-.spotify-info {
-  @apply flex items-center gap-4;
+.activty-info {
+  @apply block gap-4;
 }
 
 .album-art {
@@ -48,21 +48,12 @@
   @apply text-sm text-gray-400;
 }
 
-.activities-card {
-  @apply bg-[#2e2e2e] p-4 rounded-lg mt-4;
-  @apply text-left;
-}
-
-.activities-title {
-  @apply text-xl font-bold mb-2;
-}
-
 .activities-list {
   @apply list-disc pl-5;
 }
 
 .activity-item {
-  @apply relative mb-4 border-b border-gray-600 pb-2 last:border-none whitespace-nowrap overflow-hidden;
+  @apply relative mt-4 border-b border-gray-600 pb-2 last:border-none whitespace-nowrap overflow-auto;
 }
 
 .activity-icons {
@@ -70,19 +61,15 @@
 }
 
 .small-activity-image {
-  @apply absolute w-6 h-6 rounded-[50%];
-  left: 45px;
-  top: 55px;
+  @apply absolute w-9 h-9 rounded-[50%];
+  left: 70px;
+  top: 70px;
   z-index: 1;
   border: 2px solid #2e2e2e;
 }
 
 .large-activity-image {
-  @apply w-16 h-16 rounded-[10%] mr-2;
-}
-
-.activity-info {
-  @apply flex flex-col;
+  @apply w-[100px] h-[100px] rounded-[10%] mr-2;
 }
 
 .activity-name {
@@ -90,13 +77,9 @@
 }
 
 .activity-details {
-  @apply text-sm text-gray-400;
+  @apply text-sm;
 }
 
 .activity-time {
-  @apply text-xs text-gray-500;
-}
-
-.activity-image {
-  @apply rounded-lg mt-2;
+  @apply text-xs font-bold text-green-500;
 }

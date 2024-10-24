@@ -103,23 +103,25 @@ const DiscordCard: React.FC = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (discordStatus?.data.activities) {
-        const newTimers = { ...timers }
+      if (discordStatus?.data?.activities) {
+        setTimers(prevTimers => {
+          const newTimers = { ...prevTimers }
 
-        discordStatus.data.activities.forEach(activity => {
-          if (activity.timestamps.start) {
-            const startTime = activity.timestamps.start
-            const elapsed = Math.floor((Date.now() - startTime) / 1000)
-            newTimers[activity.id] = elapsed
-          }
+          discordStatus.data.activities.forEach(activity => {
+            if (activity.timestamps?.start) {
+              const startTime = activity.timestamps.start
+              const elapsed = Math.floor((Date.now() - startTime) / 1000)
+              newTimers[activity.id] = elapsed
+            }
+          })
+
+          return newTimers
         })
-
-        setTimers(newTimers)
       }
     }, 1000)
 
     return () => clearInterval(interval)
-  }, [discordStatus, timers])
+  }, [discordStatus])
 
   const renderActivityType = (type: number) => {
     switch (type) {
@@ -153,6 +155,11 @@ const DiscordCard: React.FC = () => {
     }
   }
 
+  const capitalizeFirst = (str: string | undefined) => {
+    if (typeof str !== 'string' || str.length === 0) return ''
+    return str.charAt(0).toUpperCase() + str.slice(1)
+  }
+
   const renderActivities = () => {
     if (
       !discordStatus?.data.activities ||
@@ -162,28 +169,34 @@ const DiscordCard: React.FC = () => {
     }
 
     return (
-      <div className='activities-card'>
-        <div className='activities-title'>Current Activities</div>
-        <div className='activities-list'>
+      <div className='activty-card'>
+        <div className='activty-title'>Current Activities</div>
+        <div className='activty-info mt-[-16px]'>
           {discordStatus.data.activities
             .filter(activity => activity.id !== 'spotify:1')
             .map(activity => (
               <div key={activity.id} className='activity-item'>
                 <div className='activity-icons'>
-                  <Image
-                    src={`https://cdn.discordapp.com/app-assets/${activity.application_id}/${activity.assets.large_image}.png`}
-                    alt='Large Activity Image'
-                    width={64}
-                    height={64}
-                    className='large-activity-image'
-                  />
-                  <Image
-                    src={`https://cdn.discordapp.com/app-assets/${activity.application_id}/${activity.assets.small_image}.png`}
-                    alt='Small Activity Image'
-                    width={40}
-                    height={40}
-                    className='small-activity-image'
-                  />
+                  {activity.assets?.large_image && (
+                    <Image
+                      src={`https://cdn.discordapp.com/app-assets/${activity.application_id}/${activity.assets.large_image}.png?size=128`}
+                      alt='Large Activity Image'
+                      width={128}
+                      height={128}
+                      quality={100}
+                      className='large-activity-image'
+                    />
+                  )}
+                  {activity.assets?.small_image && (
+                    <Image
+                      src={`https://cdn.discordapp.com/app-assets/${activity.application_id}/${activity.assets.small_image}.png?size=48`}
+                      alt='Small Activity Image'
+                      width={48}
+                      height={48}
+                      quality={100}
+                      className='small-activity-image'
+                    />
+                  )}
                   <div className='activity-info'>
                     <p className='activity-name'>
                       {renderActivityType(activity.type)} {activity.name}
@@ -194,9 +207,10 @@ const DiscordCard: React.FC = () => {
                     {activity.state && (
                       <p className='activity-details'>{activity.state}</p>
                     )}
-                    {activity.timestamps.start && (
+                    {activity?.timestamps?.start && (
                       <p className='activity-time'>
-                        Elapsed: {formatElapsedTime(timers[activity.id] || 0)}
+                        <i className='fa-solid fa-gamepad'></i>{' '}
+                        {formatElapsedTime(timers[activity.id] || 0)}
                       </p>
                     )}
                   </div>
@@ -211,9 +225,18 @@ const DiscordCard: React.FC = () => {
   return (
     <section className='discord-card-section' id='discord-card'>
       <div className='card-content'>
-      <p className='text-red-400 text-sm mb-4'>Note: This is currently WIP and I need to fix issues. This doesn&apos;t refresh automatically either.</p>
+        <p className='text-red-400 text-sm mb-4'>
+          Note: This is currently WIP and I need to fix issues. This
+          doesn&apos;t refresh automatically either.
+        </p>
         <div className='icon-and-name'>
-          <Image src="/favicon.png" alt="Icon" className='rounded-[35%] mr-3' width={90} height={90} />
+          <Image
+            src='/favicon.png'
+            alt='Icon'
+            className='rounded-[35%] mr-3'
+            width={90}
+            height={90}
+          />
           <div className='user-info'>
             <p className='discord-name'>
               {discordStatus?.data.discord_user.display_name}
@@ -222,21 +245,22 @@ const DiscordCard: React.FC = () => {
               </span>
             </p>
             <p className='discord-status'>
-              Status: {discordStatus?.data.discord_status}
+              Status: {capitalizeFirst(discordStatus?.data.discord_status)}
             </p>
           </div>
         </div>
 
         {discordStatus?.data.listening_to_spotify &&
           discordStatus.data.spotify && (
-            <div className='spotify-card'>
-              <div className='spotify-title'>Listening to Spotify</div>
-              <div className='spotify-info'>
+            <div className='activty-card'>
+              <div className='activty-title'>Listening to Spotify</div>
+              <div className='activty-info'>
                 <Image
-                  src={discordStatus.data.spotify.album_art_url}
+                  src={`${discordStatus.data.spotify.album_art_url}?size=128`}
                   alt='Album Art'
                   width={100}
                   height={100}
+                  quality={100}
                   className='album-art'
                 />
                 <div className='spotify-details'>
