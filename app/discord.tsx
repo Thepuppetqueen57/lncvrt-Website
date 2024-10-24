@@ -211,7 +211,7 @@ const DiscordCard: React.FC = () => {
   return (
     <section className='discord-card-section' id='discord-card'>
       <div className='card-content'>
-        <p className='text-red-400 text-sm mb-4'>Note: This is currently WIP and I need to fix issues. This doesn't refresh automatically either.</p>
+      <p className='text-red-400 text-sm mb-4'>Note: This is currently WIP and I need to fix issues. This doesn&apos;t refresh automatically either.</p>
         <div className='icon-and-name'>
           <Image src="/favicon.png" alt="Icon" className='rounded-[35%] mr-3' width={90} height={90} />
           <div className='user-info'>
