@@ -62,7 +62,7 @@
 }
 
 .activity-item {
-  @apply relative mb-4 border-b border-gray-600 pb-2 last:border-none whitespace-nowrap;
+  @apply relative mb-4 border-b border-gray-600 pb-2 last:border-none whitespace-nowrap overflow-hidden;
 }
 
 .activity-icons {
