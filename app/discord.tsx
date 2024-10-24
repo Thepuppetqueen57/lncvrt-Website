@@ -254,7 +254,7 @@ const DiscordCard: React.FC = () => {
           discordStatus.data.spotify && (
             <div className='activty-card'>
               <div className='activty-title'>Listening to Spotify</div>
-              <div className='activty-info'>
+              <div className='flex items-center gap-4'>
                 <Image
                   src={`${discordStatus.data.spotify.album_art_url}?size=128`}
                   alt='Album Art'
