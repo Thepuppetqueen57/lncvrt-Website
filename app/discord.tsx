@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import './discord.css'
 import { useLanyard } from 'react-use-lanyard'
 
 const DiscordCard: React.FC = () => {
   const [timers, setTimers] = useState<{ [key: string]: number }>({})
-
   const { loading, status } = useLanyard({
     userId: '1245396407607889954',
     socket: true
@@ -17,7 +16,7 @@ const DiscordCard: React.FC = () => {
         setTimers(prevTimers => {
           const newTimers = { ...prevTimers }
 
-          status?.activities.forEach(activity => {
+          status.activities.forEach(activity => {
             if (activity.timestamps?.start) {
               const startTime = activity.timestamps.start
               const elapsed = Math.floor((Date.now() - startTime) / 1000)
@@ -55,14 +54,16 @@ const DiscordCard: React.FC = () => {
     const secs = seconds % 60
 
     if (days > 0) {
-      return `${days}:${hours}:${String(minutes).padStart(2, '0')}:${String(
-        secs
-      ).padStart(2, '0')}`
-    } else {
+      return `${days}:${String(hours).padStart(2, '0')}:${String(
+        minutes
+      ).padStart(2, '0')}:${String(secs).padStart(2, '0')}`
+    }
+    if (hours > 0) {
       return `${hours}:${String(minutes).padStart(2, '0')}:${String(
         secs
       ).padStart(2, '0')}`
     }
+    return `${minutes > 0 ? minutes : 0}:${String(secs).padStart(2, '0')}`
   }
 
   const capitalizeFirst = (str: string | undefined) => {
@@ -84,7 +85,7 @@ const DiscordCard: React.FC = () => {
       <div className='activty-card'>
         <div className='activty-title'>Current Activities</div>
         <div className='activty-info mt-[-8px]'>
-          {status?.activities
+          {status.activities
             .filter(activity => activity.id !== 'spotify:1')
             .map(activity => (
               <div key={activity.id} className='activity-item'>
@@ -119,9 +120,9 @@ const DiscordCard: React.FC = () => {
                     {activity.state && (
                       <p className='activity-details'>{activity.state}</p>
                     )}
-                    {activity?.timestamps?.start && (
+                    {activity.timestamps?.start && (
                       <p className='activity-time'>
-                        <i className='fa-solid fa-gamepad'></i>{' '}
+                        <i className='fa-solid fa-gamepad mr-1'></i>
                         {formatElapsedTime(timers[activity.id] || 0)}
                       </p>
                     )}
@@ -132,6 +133,51 @@ const DiscordCard: React.FC = () => {
         </div>
       </div>
     )
+  }
+
+  const renderSpotifyActivity = () => {
+    if (status?.listening_to_spotify && status.spotify) {
+      const startTime = status.spotify.timestamps?.start
+      const endTime = status.spotify.timestamps?.end
+
+      const formattedStartTime = startTime
+        ? formatElapsedTime(Math.floor((Date.now() - startTime) / 1000))
+        : 'N/A'
+
+      const formattedEndTime = endTime
+        ? formatElapsedTime(Math.floor((endTime - startTime) / 1000))
+        : 'N/A'
+
+      return (
+        <div className='activty-card'>
+          <div className='activty-title'>Listening to Spotify</div>
+          <div className='flex items-center gap-4'>
+            <Image
+              src={`${status.spotify.album_art_url}?size=128`}
+              alt='Album Art'
+              width={100}
+              height={100}
+              quality={100}
+              className='album-art'
+            />
+            <div className='spotify-details'>
+              <p className='spotify-song'>{status.spotify.song}</p>
+              <p className='spotify-artist'>
+                <span className='text-white'>by</span> {status.spotify.artist}
+              </p>
+              <p className='spotify-album'>
+                <span className='text-white'>on</span> {status.spotify.album}
+              </p>
+              <p className='activity-time'>
+                <i className='fa-solid fa-headphones mr-1'></i>
+                {`${formattedStartTime} - ${formattedEndTime}`}
+              </p>
+            </div>
+          </div>
+        </div>
+      )
+    }
+    return null
   }
 
   return (
@@ -162,33 +208,7 @@ const DiscordCard: React.FC = () => {
               </div>
             </div>
 
-            {status?.listening_to_spotify && status.spotify && (
-              <div className='activty-card'>
-                <div className='activty-title'>Listening to Spotify</div>
-                <div className='flex items-center gap-4'>
-                  <Image
-                    src={`${status.spotify.album_art_url}?size=128`}
-                    alt='Album Art'
-                    width={100}
-                    height={100}
-                    quality={100}
-                    className='album-art'
-                  />
-                  <div className='spotify-details'>
-                    <p className='spotify-song'>{status.spotify.song}</p>
-                    <p className='spotify-artist'>
-                      <span className='text-white'>by</span>{' '}
-                      {status.spotify.artist}
-                    </p>
-                    <p className='spotify-album'>
-                      <span className='text-white'>on</span>{' '}
-                      {status.spotify.album}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            )}
-
+            {renderSpotifyActivity()}
             {renderActivities()}
           </>
         )}
