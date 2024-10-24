@@ -1,0 +1,101 @@
+.icon-and-name {
+  @apply flex items-center justify-center;
+}
+
+.avatar {
+  @apply rounded-full;
+}
+
+.user-info {
+  @apply text-left;
+}
+
+.discord-name {
+  @apply text-2xl font-semibold;
+}
+
+.discord-status {
+  @apply text-base text-green-400;
+}
+
+.spotify-card {
+  @apply bg-[#2e2e2e] p-4 rounded-lg mt-4;
+  @apply text-left;
+}
+
+.spotify-title {
+  @apply text-xl font-bold mb-2;
+}
+
+.spotify-info {
+  @apply flex items-center gap-4;
+}
+
+.album-art {
+  @apply rounded-lg;
+}
+
+.spotify-details {
+  @apply text-white;
+}
+
+.spotify-song {
+  @apply text-lg font-semibold;
+}
+
+.spotify-artist,
+.spotify-album {
+  @apply text-sm text-gray-400;
+}
+
+.activities-card {
+  @apply bg-[#2e2e2e] p-4 rounded-lg mt-4;
+  @apply text-left;
+}
+
+.activities-title {
+  @apply text-xl font-bold mb-2;
+}
+
+.activities-list {
+  @apply list-disc pl-5;
+}
+
+.activity-item {
+  @apply relative mb-4 border-b border-gray-600 pb-2 last:border-none;
+}
+
+.activity-icons {
+  @apply flex items-center;
+}
+
+.small-activity-image {
+  @apply absolute w-6 h-6 border border-gray-300 rounded-[50%];
+  left: 42px;
+  top: 42px;
+  z-index: 1;
+}
+
+.large-activity-image {
+  @apply w-16 h-16 rounded-[10%] mr-2;
+}
+
+.activity-info {
+  @apply flex flex-col;
+}
+
+.activity-name {
+  @apply text-lg font-semibold;
+}
+
+.activity-details {
+  @apply text-sm text-gray-400;
+}
+
+.activity-time {
+  @apply text-xs text-gray-500;
+}
+
+.activity-image {
+  @apply rounded-lg mt-2;
+}

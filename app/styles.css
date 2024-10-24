@@ -35,22 +35,14 @@ body {
   @apply max-w-4xl mx-auto p-5 text-center flex-grow;
 }
 
-.about-me-section,
+.discord-card-section,
 .projects-section,
 .contact-section {
   @apply w-[90%] max-w-[1200px] border shadow-[0px_0px_8px_8px_rgba(15,15,15,0.8)] rounded-2xl border-solid border-[#323232];
   @apply bg-[#1e1e1e] p-5 backdrop-blur-sm shadow-lg text-center mx-auto;
 }
 
-.about-me-section {
-  @apply mb-6;
-}
-
-.about-me-section p {
-  @apply text-lg;
-}
-
-.projects-section {
+.discord-card-section {
   @apply mb-6;
 }
 

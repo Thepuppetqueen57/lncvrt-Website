@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import DiscordCard from "./discord";
 
 const Home = () => {
   const [isGitHubLinksToggled, setIsGitHubLinksToggled] = useState(false);
@@ -68,10 +69,7 @@ const Home = () => {
 
   return (
     <div className="container">
-      <section className="about-me-section" id="about">
-        <h2>Hey, I&apos;m Lncvrt!</h2>
-        <p>I&apos;m a Java developer who makes Minecraft plugins and mods. I&apos;m busy right now, so I might not get back to you right away if you reach out.</p>
-      </section>
+      <DiscordCard/>
       <section className="projects-section" id="projects">
         <h2 style={{ marginBottom: "18px" }}>My Projects</h2>
         <div className="projects-container">
