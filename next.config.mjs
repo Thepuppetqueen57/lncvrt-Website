@@ -14,6 +14,12 @@ const nextConfig = {
           port: '',
           pathname: '/app-assets/**/**',
         },
+        {
+          protocol: 'https',
+          hostname: 'lanyard-profile-readme.vercel.app',
+          port: '',
+          pathname: '/assets/unknown.png',
+        }
       ],
     },
   };

@@ -2,10 +2,6 @@
   @apply flex items-center justify-center;
 }
 
-.avatar {
-  @apply rounded-full;
-}
-
 .user-info {
   @apply text-left;
 }
@@ -27,37 +23,16 @@
   @apply text-xl font-bold mb-2;
 }
 
-.activty-info {
-  @apply block gap-4;
-}
-
-.album-art {
+.activity-icon {
   @apply rounded-lg;
 }
 
-.spotify-details {
-  @apply text-white;
-}
-
-.spotify-song {
-  @apply text-lg font-semibold;
-}
-
-.spotify-artist,
-.spotify-album {
-  @apply text-sm text-gray-300;
-}
-
-.activities-list {
-  @apply list-disc pl-5;
+.activity-details {
+  @apply text-sm;
 }
 
 .activity-item {
   @apply relative mt-4 border-b border-gray-600 pb-2 last:border-none whitespace-nowrap overflow-auto;
-}
-
-.activity-icons {
-  @apply flex items-center;
 }
 
 .small-activity-image {
@@ -68,16 +43,8 @@
   border: 2px solid #2e2e2e;
 }
 
-.large-activity-image {
-  @apply w-[100px] h-[100px] rounded-[10%] mr-2;
-}
-
 .activity-name {
   @apply text-lg font-semibold;
-}
-
-.activity-details {
-  @apply text-sm;
 }
 
 .activity-time {

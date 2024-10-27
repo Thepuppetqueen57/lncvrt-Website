@@ -26,7 +26,9 @@ const Home = () => {
 
       setProjects(filteredProjects);
     } catch (error: any) {
-      setError(`Failed to get projects: ${error.message || "No error was provided"}`);
+      setError(
+        `Failed to get projects: ${error.message || "No error was provided"}`
+      );
     } finally {
       setIsLoading(false);
     }
@@ -42,7 +44,7 @@ const Home = () => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Shift") {
-        setShiftKeyPressedCount(prevCount => prevCount + 1);
+        setShiftKeyPressedCount((prevCount) => prevCount + 1);
       }
     };
 
@@ -63,21 +65,37 @@ const Home = () => {
 
   useEffect(() => {
     if (shiftKeyPressedCount === 1) {
-      setIsGitHubLinksToggled(prevToggled => !prevToggled);
+      setIsGitHubLinksToggled((prevToggled) => !prevToggled);
     }
   }, [shiftKeyPressedCount]);
 
   return (
     <div className="container">
-      <DiscordCard/>
+      <DiscordCard />
       <section className="projects-section" id="projects">
         <h2 style={{ marginBottom: "18px" }}>My Projects</h2>
         <div className="projects-container">
-          {isLoading ? <p>Loading...</p> : error ? <p>{error}</p> : (
+          {isLoading ? (
+            <p>Loading...</p>
+          ) : error ? (
+            <p>{error}</p>
+          ) : (
             projects.map((project) => (
               <div className="project-card" key={project.id}>
                 <h3>
-                  <a draggable="false" href={isGitHubLinksToggled ? (project.html_url || project.homepage) : (project.homepage || project.html_url)} target="_blank" rel="noopener noreferrer" className="underline-animation">{project.name}</a>
+                  <a
+                    draggable="false"
+                    href={
+                      isGitHubLinksToggled
+                        ? project.html_url || project.homepage
+                        : project.homepage || project.html_url
+                    }
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline-animation"
+                  >
+                    {project.name}
+                  </a>
                 </h3>
                 <div className="project-description">
                   <p>{project.description}</p>
@@ -86,7 +104,11 @@ const Home = () => {
             ))
           )}
         </div>
-        {isGitHubLinksToggled && <p style={{ marginTop: "25px" }}>GitHub links for projects enabled.</p>}
+        {isGitHubLinksToggled && (
+          <p style={{ marginTop: "25px" }}>
+            GitHub links for projects enabled.
+          </p>
+        )}
       </section>
     </div>
   );
