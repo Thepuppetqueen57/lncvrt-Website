@@ -101,6 +101,7 @@ const DiscordCard: React.FC = () => {
                     height={100}
                     quality={100}
                     className="activity-icon"
+                    draggable={false}
                     style={{
                       filter: activity.assets?.large_image
                         ? "none"
@@ -115,6 +116,7 @@ const DiscordCard: React.FC = () => {
                       height={48}
                       quality={100}
                       className="small-activity-image"
+                      draggable={false}
                     />
                   )}
                   <div className="activity-details">
@@ -162,6 +164,7 @@ const DiscordCard: React.FC = () => {
               height={100}
               quality={100}
               className="activity-icon"
+              draggable={false}
             />
             <div className="activity-details">
               <p className="activity-name">{status.spotify.song}</p>
@@ -197,6 +200,7 @@ const DiscordCard: React.FC = () => {
                 className="rounded-[35%] mr-3"
                 width={90}
                 height={90}
+                draggable={false}
               />
               <div className="user-info">
                 <p className="discord-name">

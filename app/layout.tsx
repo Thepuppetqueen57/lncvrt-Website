@@ -47,6 +47,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                   className="icon"
                   width={40}
                   height={40}
+                  draggable={false}
                 />
               </Link>
               <nav className="nav-links">
