@@ -3,7 +3,10 @@ import { getBuilds } from '../../../../lib/papermc/builds';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     try {
-        const buildsData = await getBuilds("folia");
+        let { primary } = req.query;
+        let newPrimary = false;
+        if (primary === "true") newPrimary = true;
+        const buildsData = await getBuilds("folia", newPrimary);
         res.status(200).json(buildsData);
     } catch (error) {
         console.error('Error handling request:', error);

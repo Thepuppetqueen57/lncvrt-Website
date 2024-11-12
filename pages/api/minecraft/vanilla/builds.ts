@@ -1,12 +1,12 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { getBuilds } from '../../../../lib/papermc/builds';
+import { getBuilds } from '../../../../lib/mojang/builds';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     try {
         let { primary } = req.query;
         let newPrimary = false;
-        if (primary === "true") newPrimary = true;
-        const buildsData = await getBuilds("velocity", newPrimary);
+        if (primary === 'true') newPrimary = true;
+        const buildsData = await getBuilds(newPrimary);
         res.status(200).json(buildsData);
     } catch (error) {
         console.error('Error handling request:', error);

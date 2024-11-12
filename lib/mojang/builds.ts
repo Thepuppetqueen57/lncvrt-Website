@@ -1,16 +1,27 @@
 import fetch from "node-fetch";
 
 interface VersionData {
-    builds: number[];
+    downloads: {
+        server: {
+            url: string;
+        };
+    };
 }
 
 interface ProjectData {
-    latest: string;
-    versions: string[];
+    latest: {
+        release: string;
+        snapshot: string;
+    };
+    versions: {
+        id: string;
+        url: string;
+    }[];
 }
 
 interface BuildsData {
     latestVersion: string;
+    latest: Record<string, string>;
     versions: string[] | Record<string, string>;
     fetch_time: number;
 }
@@ -29,18 +40,24 @@ async function fetchJson<T>(url: string): Promise<T> {
     return response.json() as Promise<T>;
 }
 
-export async function getBuilds(projectName: string, primary: boolean): Promise<BuildsData> {
+export async function getBuilds(primary: boolean): Promise<BuildsData> {
     const startTime = Date.now();
-    const baseUrl = `https://api.papermc.io/v2/projects/${projectName}`;
 
     try {
-        const projectData = await fetchJson<ProjectData>(baseUrl);
-        const latestVersion = projectData.latest;
+        const projectData = await fetchJson<ProjectData>("https://launchermeta.mojang.com/mc/game/version_manifest.json");
+        let latestVersion: string | null = null;
+        const latest = projectData.latest;
 
         if (primary) {
+            const versionNames = projectData.versions.map(
+                (version) => version.id
+            );
+            latestVersion = versionNames[0];
+
             return {
                 latestVersion,
-                versions: projectData.versions,
+                latest,
+                versions: versionNames,
                 fetch_time: Date.now() - startTime,
             };
         } else {
@@ -48,24 +65,24 @@ export async function getBuilds(projectName: string, primary: boolean): Promise<
             const versionPromises = projectData.versions.map(
                 async (version) => {
                     const versionData = await fetchJson<VersionData>(
-                        `${baseUrl}/versions/${version}`
+                        version.url
                     );
-                    const latestBuildNumber = versionData.builds.slice(-1)[0];
-                    const latestBuildURL = `${baseUrl}/versions/${version}/builds/${latestBuildNumber}/downloads/${projectName}-${version}-${latestBuildNumber}.jar`;
-                    versionsData[version] = latestBuildURL;
+
+                    const downloadURL = versionData.downloads?.server?.url;
+                    if (downloadURL) {
+                        versionsData[version.id] = downloadURL;
+                    }
                 }
             );
 
             await Promise.all(versionPromises);
 
-            const sortedVersionsData: Record<string, string> = {};
-            for (const version of projectData.versions.reverse()) {
-                sortedVersionsData[version] = versionsData[version];
-            }
+            latestVersion = Object.keys(versionsData)[0];
 
             return {
                 latestVersion,
-                versions: sortedVersionsData,
+                latest,
+                versions: versionsData,
                 fetch_time: Date.now() - startTime,
             };
         }
