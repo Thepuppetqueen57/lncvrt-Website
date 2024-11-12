@@ -47,9 +47,7 @@ export async function getBuilds(projectName: string, primary: boolean): Promise<
             const versionsData: Record<string, string> = {};
             const versionPromises = projectData.versions.map(
                 async (version) => {
-                    const versionData = await fetchJson<VersionData>(
-                        `${baseUrl}/versions/${version}`
-                    );
+                    const versionData = await fetchJson<VersionData>(`${baseUrl}/versions/${version}`);
                     const latestBuildNumber = versionData.builds.slice(-1)[0];
                     const latestBuildURL = `${baseUrl}/versions/${version}/builds/${latestBuildNumber}/downloads/${projectName}-${version}-${latestBuildNumber}.jar`;
                     versionsData[version] = latestBuildURL;

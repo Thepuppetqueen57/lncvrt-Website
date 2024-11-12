@@ -47,12 +47,14 @@ export async function getBuilds(projectName: string, primary: boolean): Promise<
             };
         } else {
             const versionsData: Record<string, string> = {};
-            const versionPromises = projectData.versions.map(async (version) => {
-                const versionData = await fetchJson<VersionData>(`${baseUrl}/${version}`);
-                const latestBuildNumber = versionData.builds.latest;
-                const latestBuildURL = `${baseUrl}/${version}/${latestBuildNumber}/download`;
-                versionsData[version] = latestBuildURL;
-            });
+            const versionPromises = projectData.versions.map(
+                async (version) => {
+                    const versionData = await fetchJson<VersionData>(`${baseUrl}/${version}`);
+                    const latestBuildNumber = versionData.builds.latest;
+                    const latestBuildURL = `${baseUrl}/${version}/${latestBuildNumber}/download`;
+                    versionsData[version] = latestBuildURL;
+                }
+            );
 
             await Promise.all(versionPromises);
 
