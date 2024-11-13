@@ -138,13 +138,9 @@ const DiscordCard: React.FC = () => {
       const startTime = status.spotify.timestamps?.start;
       const endTime = status.spotify.timestamps?.end;
 
-      const formattedStartTime = startTime
-        ? formatElapsedTime(Math.floor((Date.now() - startTime) / 1000))
-        : "N/A";
+      const formattedStartTime = startTime ? formatElapsedTime(Math.floor((Date.now() - startTime) / 1000)) : "N/A";
 
-      const formattedEndTime = endTime
-        ? formatElapsedTime(Math.floor((endTime - startTime) / 1000))
-        : "N/A";
+      const formattedEndTime = endTime ? formatElapsedTime(Math.floor((endTime - startTime) / 1000)) : "N/A";
 
       return (
         <div className="activty-card">
@@ -161,16 +157,16 @@ const DiscordCard: React.FC = () => {
             />
             <div className="activity-details">
               <p className="activity-name">
-                <Link draggable={false} className="underline-animation" href={`https://open.spotify.com/search/${status.spotify.song}/tracks`} target="_blank">
+                <Link draggable={false} className="underline-animation" href={`https://open.spotify.com/search/${encodeURIComponent(status.spotify.song)}/tracks`} target="_blank">
                   {status.spotify.song}
                 </Link></p>
               <p>
-                <Link draggable={false} className="underline-animation" style={{ fontWeight: "normal" }} href={`https://open.spotify.com/search/${status.spotify.artist}/artists`} target="_blank">
+                <Link draggable={false} className="underline-animation" style={{ fontWeight: "normal" }} href={`https://open.spotify.com/search/${encodeURIComponent(status.spotify.artist)}/artists`} target="_blank">
                   <span className="text-white">by</span> {status.spotify.artist}
                 </Link>
               </p>
               <p>
-                <Link draggable={false} className="underline-animation" style={{ fontWeight: "normal" }} href={`https://open.spotify.com/search/${status.spotify.album}/albums`} target="_blank">
+                <Link draggable={false} className="underline-animation" style={{ fontWeight: "normal" }} href={`https://open.spotify.com/search/${encodeURIComponent(status.spotify.album)}/albums`} target="_blank">
                   <span className="text-white">on</span> {status.spotify.album}
                 </Link>
               </p>
@@ -211,6 +207,7 @@ const DiscordCard: React.FC = () => {
                 </p>
                 <p className="discord-status">
                   Status: {capitalizeFirst(status?.discord_status)}
+        
                 </p>
               </div>
             </div>
