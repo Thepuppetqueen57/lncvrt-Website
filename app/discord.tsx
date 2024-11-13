@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import "./discord.css";
 import { useLanyard } from "react-use-lanyard";
+import Link from "next/link";
 
 const DiscordCard: React.FC = () => {
   const [timers, setTimers] = useState<{ [key: string]: number }>({});
@@ -91,22 +92,14 @@ const DiscordCard: React.FC = () => {
               <div key={activity.id} className="activity-item">
                 <div className="flex items-center gap-4">
                   <Image
-                    src={
-                      activity.assets?.large_image
-                        ? `https://cdn.discordapp.com/app-assets/${activity.application_id}/${activity.assets.large_image}.png?size=128`
-                        : "https://lanyard-profile-readme.vercel.app/assets/unknown.png"
-                    }
+                    src={activity.assets?.large_image ? `https://cdn.discordapp.com/app-assets/${activity.application_id}/${activity.assets.large_image}.png?size=128` : "https://lanyard-profile-readme.vercel.app/assets/unknown.png"}
                     alt="Large Activity Image"
                     width={100}
                     height={100}
                     quality={100}
                     className="activity-icon"
                     draggable={false}
-                    style={{
-                      filter: activity.assets?.large_image
-                        ? "none"
-                        : "invert(1)",
-                    }}
+                    style={{filter: activity.assets?.large_image ? "none" : "invert(1)"}}
                   />
                   {activity.assets?.small_image && (
                     <Image
@@ -167,12 +160,19 @@ const DiscordCard: React.FC = () => {
               draggable={false}
             />
             <div className="activity-details">
-              <p className="activity-name">{status.spotify.song}</p>
+              <p className="activity-name">
+                <Link draggable={false} className="underline-animation" href={`https://open.spotify.com/search/${status.spotify.song}/tracks`} target="_blank">
+                  {status.spotify.song}
+                </Link></p>
               <p>
-                <span className="text-white">by</span> {status.spotify.artist}
+                <Link draggable={false} className="underline-animation" style={{ fontWeight: "normal" }} href={`https://open.spotify.com/search/${status.spotify.artist}/artists`} target="_blank">
+                  <span className="text-white">by</span> {status.spotify.artist}
+                </Link>
               </p>
               <p>
-                <span className="text-white">on</span> {status.spotify.album}
+                <Link draggable={false} className="underline-animation" style={{ fontWeight: "normal" }} href={`https://open.spotify.com/search/${status.spotify.album}/albums`} target="_blank">
+                  <span className="text-white">on</span> {status.spotify.album}
+                </Link>
               </p>
               <p className="activity-time">
                 <i className="fa-solid fa-headphones mr-1"></i>
