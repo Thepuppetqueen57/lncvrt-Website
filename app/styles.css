@@ -101,7 +101,7 @@ body {
 }
 
 .underline-animation::after {
-  background: #fff;
+  @apply bg-white;
 }
 
 .underline-animation:hover {
