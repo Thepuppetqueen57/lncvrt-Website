@@ -41,96 +41,62 @@ const Contact = () => {
           </p>
           <p>
             <i className="fab fa-discord"></i>
-            Discord Server:{" "}
-            <Link
-              draggable={false}
-              href="/discord"
-              className="underline-animation"
-            >
+            Discord Server:
+            <Link draggable={false} href="/discord" className="underline-animation">
               click here
             </Link>
             &nbsp;
           </p>
           <p>
             <i className="fas fa-envelope"></i>
-            Email:{" "}
-            <a
-              draggable="false"
-              href="mailto:lncvrtreal@gmail.com"
-              className="underline-animation"
-            >
+            Email:
+            <Link draggable={false} href="mailto:lncvrtreal@gmail.com" className="underline-animation">
               lncvrtreal@gmail.com
-            </a>
+            </Link>
             &nbsp;(May take longer to reply)
           </p>
           <p>Below this is socials. I will likely not reply there.</p>
           <p>
-            <i
-              className={isShiftPressed ? "fab fa-twitter" : "fab fa-x-twitter"}
-            ></i>
-            {isShiftPressed ? " Twitter: " : " X: "}
-            <a
-              draggable="false"
-              href="https://x.com/lncvrt"
-              className="underline-animation"
-            >
+            <i className={isShiftPressed ? "fab fa-twitter" : "fab fa-x-twitter"}></i>
+            {isShiftPressed ? "Twitter:" : "X:"}
+            <Link draggable={false} href="https://x.com/lncvrt" className="underline-animation">
               @lncvrt
-            </a>
+            </Link>
           </p>
           <p>
             <i className="fab fa-reddit"></i>
-            Reddit:{" "}
-            <a
-              draggable="false"
-              href="https://www.reddit.com/user/Lncvrt/"
-              className="underline-animation"
-            >
+            Reddit:
+            <Link draggable={false} href="https://www.reddit.com/user/Lncvrt/" className="underline-animation">
               @lncvrt
-            </a>
+            </Link>
           </p>
           <p>
             <i className="fab fa-github"></i>
-            GitHub:{" "}
-            <a
-              draggable="false"
-              href="https://github.com/Lncvrt"
-              className="underline-animation"
-            >
+            GitHub:
+            <Link draggable={false} href="https://github.com/Lncvrt" className="underline-animation">
               @lncvrt
-            </a>
+            </Link>
           </p>
           <p>
             <i className="fab fa-youtube"></i>
-            YouTube:{" "}
-            <a
-              draggable="false"
-              href="https://www.youtube.com/channel/UCmQw2yk1PRJfOmwA2YHFuZA"
-              className="underline-animation"
-            >
+            YouTube:
+            <Link draggable={false} href="https://www.youtube.com/channel/UCmQw2yk1PRJfOmwA2YHFuZA" className="underline-animation" >
               @Lncvrt
-            </a>
+            </Link>
           </p>
           <p>
             <i className="fab fa-steam"></i>
-            Steam:{" "}
-            <a
-              draggable="false"
-              href="https://steamcommunity.com/id/lncvrt/"
-              className="underline-animation"
-            >
+            Steam:
+            <Link draggable={false} href="https://steamcommunity.com/id/lncvrt/" className="underline-animation">
               lncvrt
-            </a>
+            </Link>
           </p>
           <p>
             <i className="fab fa-instagram"></i>
-            Instagram:{" "}
-            <a
-              draggable="false"
-              href="https://www.instagram.com/lncvrtreal/"
-              className="underline-animation"
-            >
+            Instagram:
+            <Link draggable={false} href="https://www.instagram.com/lncvrtreal/" className="underline-animation">
               lncvrtreal
-            </a>
+            </Link>
           </p>
         </div>
       </section>
