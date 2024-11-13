@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import DiscordCard from "./discord";
+import axios from "axios";
 
 const Home = () => {
   const [isGitHubLinksToggled, setIsGitHubLinksToggled] = useState(false);
@@ -13,12 +14,8 @@ const Home = () => {
 
   const fetchGitHubProjects = async () => {
     try {
-      const response = await fetch("https://api.github.com/users/Lncvrt/repos");
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || "No error was provided");
-      }
+      const response = await axios.get("https://api.github.com/users/Lncvrt/repos");
+      const data = response.data;
 
       const filteredProjects = data.filter(
         (repo: any) => !repo.description?.startsWith("[H]")
@@ -86,16 +83,15 @@ const Home = () => {
                   <a
                     draggable="false"
                     href={
-                      isGitHubLinksToggled
-                        ? project.html_url || project.homepage
-                        : project.homepage || project.html_url
+                      isGitHubLinksToggled ? project.html_url || project.homepage : project.homepage || project.html_url
                     }
                     target="_blank"
                     rel="noopener noreferrer"
                     className="underline-animation"
                   >
-                    {project.name}
+                    <span style={{ color: project.archived ? "#D29922" : "inherit" }}>{project.name}</span>
                   </a>
+                  {project.language ? <span style={{ fontSize: 14 }}>&nbsp;({project.language})</span> : null}
                 </h3>
                 <div className="project-description">
                   <p>{project.description}</p>
