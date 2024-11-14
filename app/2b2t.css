@@ -4,6 +4,6 @@
 }
 
 .motd-box {
-    @apply bg-[#121212] text-left inline-block p-2 rounded;
+    @apply bg-[#121212] text-left inline-block p-2 rounded select-text;
     font-family: 'Minecraftia', sans-serif;
 }
