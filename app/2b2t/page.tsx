@@ -70,7 +70,7 @@ interface Status {
   eula_blocked: boolean;
 }
 
-const Contact = () => {
+const _2b2t = () => {
   const [status, setStatus] = useState<Status | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -107,7 +107,7 @@ const Contact = () => {
 
   return (
     <div className="container">
-      <section className="contact-section" id="contact">
+      <section className="contact-section" id="2b2t">
         <h2>2b2t Stats & Info</h2>
         <p>Online count, MOTD, and other info about 2b2t, in your browser.</p>
         <div>
@@ -116,7 +116,7 @@ const Contact = () => {
           ) : error ? (
             <p>{error}</p>
           ) : (
-            <div style={{ alignItems: "center" }}>
+            <div style={{ alignItems: "center", userSelect: "text" }}>
               <h3>MOTD:</h3>
               <div className="motd-box">
                 <p dangerouslySetInnerHTML={{ __html: status?.motd?.html?.[0] || "<p>N/A</p>" }} />
@@ -144,4 +144,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default _2b2t;
