@@ -131,7 +131,7 @@ const TwoBuildersTwoTools = () => {
               </span></p>
               <h3>Other Info</h3>
               <p>Icon:</p>
-              <img src={status?.icon} style={{ display: "block", margin: "0 auto" }} />
+              <img draggable={false} src={status?.icon} className="block mx-auto rounded-sm bg-[#121212] p-1 m-1" />
               <p>EULA Blocked: {JSON.stringify(status?.eula_blocked)}</p>
               <p>Hostname: <span className="underline-animation" onClick={() => copyToClipboard(status?.hostname)}>{status?.hostname}</span></p>
               <p>Real IP: <span className="underline-animation" onClick={() => copyToClipboard(`${status?.ip}:${status?.port}`)}>{`${status?.ip}:${status?.port}`}</span></p>
