@@ -23,9 +23,7 @@ const Home = () => {
 
       setProjects(filteredProjects);
     } catch (error: any) {
-      setError(
-        `Failed to get projects: ${error.message || "No error was provided"}`
-      );
+      setError(`Failed to get projects: ${error.message || "No error was provided"}`);
     } finally {
       setIsLoading(false);
     }

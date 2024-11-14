@@ -51,25 +51,16 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                 />
               </Link>
               <nav className="nav-links">
-                <Link
-                  draggable={false}
-                  href="/"
-                  className="underline-animation"
-                >
+                <Link draggable={false} href="/" className="underline-animation">
                   Home
                 </Link>
-                <Link
-                  draggable={false}
-                  href="/contacts"
-                  className="underline-animation"
-                >
+                <Link draggable={false} href="/contacts" className="underline-animation">
                   Socials & Contacts
                 </Link>
-                <Link
-                  draggable={false}
-                  href="/discord"
-                  className="underline-animation"
-                >
+                <Link draggable={false} href="/pages" className="underline-animation">
+                  Pages & Utilities
+                </Link>
+                <Link draggable={false} href="/discord" className="underline-animation">
                   Discord
                 </Link>
               </nav>
