@@ -8,7 +8,7 @@ const Contact = () => {
     <div className="container">
       <section className="contact-section" id="contact">
         <h2>Pages & Utilities</h2>
-        <p>Here's some endpoints accross this website:</p>
+        <p>Here&apos;s some endpoints accross this website:</p>
         <div className="contact-info">
           <p>
             <Link draggable={false} href="/2b2t" className="underline-animation" style={{ display: 'block' }}>
