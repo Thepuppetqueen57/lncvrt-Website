@@ -16,7 +16,7 @@ const Contact = () => {
             </Link>
           </p>
         </div>
-        <p style={{ fontStyle: "italic", marginTop: 20 }}>underline is broken but I can't be bothered to fix it. api docs coming soon!</p>
+        <p style={{ fontStyle: "italic", marginTop: 20 }}>underline is broken but I can&apos;t be bothered to fix it. api docs coming soon!</p>
       </section>
     </div>
   );
