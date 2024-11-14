@@ -70,7 +70,7 @@ interface Status {
   eula_blocked: boolean;
 }
 
-const twobeetwotee = () => {
+const TwoBuildersTwoTools = () => {
   const [status, setStatus] = useState<Status | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -144,4 +144,4 @@ const twobeetwotee = () => {
   );
 };
 
-export default twobeetwotee;
+export default TwoBuildersTwoTools;
