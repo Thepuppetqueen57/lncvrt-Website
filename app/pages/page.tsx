@@ -3,10 +3,10 @@
 import React from "react";
 import Link from "next/link";
 
-const Contact = () => {
+const Pages = () => {
   return (
     <div className="container">
-      <section className="contact-section" id="contact">
+      <section className="container-section" id="contact">
         <h2>Pages & Utilities</h2>
         <p>Here&apos;s some endpoints accross this website:</p>
         <div className="contact-info">
@@ -22,4 +22,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default Pages;

@@ -35,15 +35,9 @@ body {
   @apply max-w-4xl mx-auto p-5 text-center flex-grow;
 }
 
-.discord-card-section,
-.projects-section,
-.contact-section {
+.container-section {
   @apply w-[90%] max-w-[1200px] border shadow-[0px_0px_8px_8px_rgba(15,15,15,0.8)] rounded-2xl border-solid border-[#323232];
   @apply bg-[#1e1e1e] p-5 backdrop-blur-sm shadow-lg text-center mx-auto;
-}
-
-.discord-card-section {
-  @apply mb-6;
 }
 
 .projects-container {

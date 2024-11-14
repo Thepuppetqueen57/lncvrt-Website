@@ -107,7 +107,7 @@ const _2b2t = () => {
 
   return (
     <div className="container">
-      <section className="contact-section" id="2b2t">
+      <section className="container-section" id="2b2t">
         <h2>2b2t Stats & Info</h2>
         <p>Online count, MOTD, and other info about 2b2t, in your browser.</p>
         <div>

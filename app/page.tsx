@@ -67,7 +67,7 @@ const Home = () => {
   return (
     <div className="container">
       <DiscordCard />
-      <section className="projects-section" id="projects">
+      <section className="container-section" id="projects">
         <h2 style={{ marginBottom: "18px" }}>My Projects</h2>
         <div className="projects-container">
           {isLoading ? (

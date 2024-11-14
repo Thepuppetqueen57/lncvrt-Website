@@ -216,7 +216,7 @@ const DiscordCard: React.FC = () => {
   };
 
   return (
-    <section className="discord-card-section" id="discord-card">
+    <section className="container-section" id="discord-card" style={{ marginBottom: "24px" }}>
       <div className="card-content">
         {loading ? (
           <h1>Loading...</h1>
