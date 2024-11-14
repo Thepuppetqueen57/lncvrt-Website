@@ -118,7 +118,6 @@ const Contact = () => {
             <div style={{ alignItems: "center" }}>
               <h3>MOTD:</h3>
               <p dangerouslySetInnerHTML={{ __html: status?.motd?.html?.[0] || "<p>N/A</p>" }} />
-              <p dangerouslySetInnerHTML={{ __html: status?.motd?.html?.[0] || "<p>N/A</p>" }} />
               <p dangerouslySetInnerHTML={{ __html: status?.motd?.html?.[1] || "<p>N/A</p>" }} />
               <h3>Players:</h3>
               <p>Total Online: <span style={{ color: "#FFAA00" }}>{status?.players?.online || 0}</span></p>
