@@ -248,7 +248,7 @@ const DiscordCard: React.FC = () => {
                       <br />
                     </div>
                   ) : null}
-                  <span>About Me: {capitalizeFirst(bio)}</span>
+                  {bio != null ? <span>About Me: {capitalizeFirst(bio)}</span> : null}
                 </div>
               </div>
             </div>
