@@ -14,6 +14,8 @@ const DiscordCard: React.FC = () => {
   const [bio, setBio] = useState<string>("Loading...");
   const hasFetched = useRef(false);
 
+  const customStatus = status?.activities?.find(activity => activity.id === "custom");
+
   const fetchGitHubProjects = async () => {
       try {
           const response = await axios.get(
@@ -95,14 +97,22 @@ const DiscordCard: React.FC = () => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
 
+  const isEmoji = (input: string) => {
+      const emojiRegex = /\p{Emoji}/u;
+      return emojiRegex.test(input);
+  }
+
   const renderActivities = () => {
     if (
-      !status?.activities ||
-      status.activities.length === 0 ||
-      (status.activities.length === 1 &&
-        status.activities[0].id === "spotify:1")
+        !status?.activities ||
+        status.activities.length === 0 ||
+        (status.activities.length === 1 &&
+            ["spotify:1", "custom"].includes(status.activities[0].id)) ||
+        (status.activities.length === 2 &&
+            ["spotify:1", "custom"].includes(status.activities[0].id) &&
+            ["spotify:1", "custom"].includes(status.activities[1].id))
     ) {
-      return null;
+        return null;
     }
 
     return (
@@ -231,9 +241,15 @@ const DiscordCard: React.FC = () => {
                     (@{status?.discord_user.username})
                   </span>
                 </p>
-                <p className="discord-info">
-                  <span>{capitalizeFirst(bio)}</span>
-                </p>
+                <div className="discord-info">
+                  {customStatus != null ? (
+                    <div>
+                      <span>Status: {customStatus.emoji?.name != null && isEmoji(customStatus.emoji?.name) ? <span>{customStatus.emoji?.name}&nbsp;</span> : null}{capitalizeFirst(customStatus.state)}</span>
+                      <br />
+                    </div>
+                  ) : null}
+                  <span>About Me: {capitalizeFirst(bio)}</span>
+                </div>
               </div>
             </div>
 
