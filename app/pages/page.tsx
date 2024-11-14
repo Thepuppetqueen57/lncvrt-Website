@@ -6,7 +6,7 @@ import Link from "next/link";
 const Pages = () => {
   return (
     <div className="container">
-      <section className="container-section" id="contact">
+      <section className="container-section">
         <h2>Pages & Utilities</h2>
         <p>Here&apos;s some endpoints accross this website:</p>
         <div className="contact-info">

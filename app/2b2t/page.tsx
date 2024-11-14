@@ -107,7 +107,7 @@ const TwoBuildersTwoTools = () => {
 
   return (
     <div className="container">
-      <section className="container-sectionw" id="2b2t">
+      <section className="container-section">
         <h2>2b2t Stats & Info</h2>
         <p>Online count, MOTD, and other info about 2b2t, in your browser.</p>
         <div>
