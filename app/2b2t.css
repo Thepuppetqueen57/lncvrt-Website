@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Minecraftia';
+    src: url('/fonts/minecraftia.ttf') format('truetype');
+}
+
+.motd-box {
+    @apply bg-[#121212] text-left inline-block p-2 rounded;
+    font-family: 'Minecraftia', sans-serif;
+}

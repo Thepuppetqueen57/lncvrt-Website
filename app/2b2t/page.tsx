@@ -4,6 +4,7 @@ import React, {useEffect, useState, useRef} from "react";
 import axios from "axios";
 import { copyToClipboard } from '../../lib/clipboard';
 import Link from "next/link";
+import "../2b2t.css";
 
 interface DNSRecord {
   name: string;
@@ -117,8 +118,10 @@ const Contact = () => {
           ) : (
             <div style={{ alignItems: "center" }}>
               <h3>MOTD:</h3>
-              <p dangerouslySetInnerHTML={{ __html: status?.motd?.html?.[0] || "<p>N/A</p>" }} />
-              <p dangerouslySetInnerHTML={{ __html: status?.motd?.html?.[1] || "<p>N/A</p>" }} />
+              <div className="motd-box">
+                <p dangerouslySetInnerHTML={{ __html: status?.motd?.html?.[0] || "<p>N/A</p>" }} />
+                <p dangerouslySetInnerHTML={{ __html: status?.motd?.html?.[1] || "<p>N/A</p>" }} />
+              </div>
               <h3>Players:</h3>
               <p>Total Online: <span style={{ color: "#FFAA00" }}>{status?.players?.online || 0}</span></p>
               <p dangerouslySetInnerHTML={{ __html: styleNumbers(status?.info?.clean?.[0] || "In-game: N/A").replace("In-game", "In game") }} />
