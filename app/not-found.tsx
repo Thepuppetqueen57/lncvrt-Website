@@ -8,10 +8,10 @@ const Home = () => {
         <h2>404</h2>
         <p>Sorry, the page you are looking for does not exist.</p>
         <p>
-          Click{" "}
+          Click&nbsp;
           <Link draggable={false} href="/" className="underline-animation">
             here
-          </Link>{" "}
+          </Link>&nbsp;
           to return to the main page
         </p>
       </section>

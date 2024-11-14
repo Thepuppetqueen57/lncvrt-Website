@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import "./discord.css";
 import { useLanyard } from "react-use-lanyard";
 import Link from "next/link";
+import axios from "axios";
 
 const DiscordCard: React.FC = () => {
   const [timers, setTimers] = useState<{ [key: string]: number }>({});
@@ -10,6 +11,28 @@ const DiscordCard: React.FC = () => {
     userId: "1245396407607889954",
     socket: true,
   });
+  const [bio, setBio] = useState<string>("Loading...");
+  const hasFetched = useRef(false);
+
+  const fetchGitHubProjects = async () => {
+      try {
+          const response = await axios.get(
+              "https://api.github.com/users/Lncvrt"
+          );
+          const data = response.data.bio;
+
+          setBio(data);
+      } catch (error: any) {
+          setBio("N/A")
+      }
+  };
+
+  useEffect(() => {
+      if (!hasFetched.current) {
+          fetchGitHubProjects();
+          hasFetched.current = true;
+      }
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -190,24 +213,26 @@ const DiscordCard: React.FC = () => {
         ) : (
           <>
             <div className="icon-and-name">
-              <Image
-                src="/favicon.png"
-                alt="Icon"
-                className="rounded-[35%] mr-3"
-                width={90}
-                height={90}
-                draggable={false}
-              />
+              <div className="relative">
+                <Image
+                  src={`https://cdn.discordapp.com/avatars/${status?.discord_user.id}/${status?.discord_user.avatar}.png?size=128`}
+                  alt="Icon"
+                  className="rounded-[50%] mr-3"
+                  width={90}
+                  height={90}
+                  draggable={false}
+                />
+                <i className={`status-card ${status?.discord_status}`}></i>
+              </div>
               <div className="user-info">
                 <p className="discord-name">
-                  {status?.discord_user.global_name}
-                  <span className="text-gray-300 font-extralight ml-2">
+                  {status?.discord_user.global_name}&nbsp;
+                  <span className="text-gray-300 font-extralight">
                     (@{status?.discord_user.username})
                   </span>
                 </p>
-                <p className="discord-status">
-                  Status: {capitalizeFirst(status?.discord_status)}
-        
+                <p className="discord-info">
+                  <span>{capitalizeFirst(bio)}</span>
                 </p>
               </div>
             </div>

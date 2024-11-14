@@ -10,8 +10,8 @@
   @apply text-2xl font-semibold;
 }
 
-.discord-status {
-  @apply text-base text-green-300;
+.discord-info {
+  @apply text-base;
 }
 
 .activty-card {
@@ -45,4 +45,27 @@
 
 .activity-time {
   @apply text-xs font-bold text-green-500;
+}
+
+.status-card {
+  @apply absolute w-6 h-6 rounded-[50%] border-[4px] border-solid border-[#1e1e1e] bg-white;
+  bottom: 10%;
+  left: 60%;
+  transition: background-color 0.3s ease;
+}
+
+.status-card.online {
+  @apply bg-[#23a55a]
+}
+
+.status-card.idle {
+  @apply bg-[#f0b232]
+}
+
+.status-card.dnd {
+  @apply bg-[#f23f43]
+}
+
+.status-card.offline {
+  @apply bg-[#80848e]
 }

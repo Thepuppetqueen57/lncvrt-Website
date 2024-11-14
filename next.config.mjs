@@ -16,6 +16,12 @@ const nextConfig = {
         },
         {
           protocol: 'https',
+          hostname: 'cdn.discordapp.com',
+          port: '',
+          pathname: '/avatars/**/**',
+        },
+        {
+          protocol: 'https',
           hostname: 'lanyard-profile-readme.vercel.app',
           port: '',
           pathname: '/assets/unknown.png',
