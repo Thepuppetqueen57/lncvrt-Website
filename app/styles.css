@@ -53,7 +53,7 @@ body {
 .project-card {
   @apply transition-all duration-[0.5s] hover:scale-105;
   @apply border shadow-[0px_0px_8px_8px_rgba(30,30,30,0.8)] rounded-2xl border-solid border-[#464646];
-  @apply bg-[#323232] p-5 shadow-lg flex flex-col items-center text-center min-w-[300px] max-w-[calc(100%/3-20px)];
+  @apply bg-[#323232] p-5 shadow-lg flex flex-col items-center text-center min-w-[280px] max-w-[calc(100%/3-20px)];
 }
 
 .project-card a,
@@ -62,7 +62,7 @@ body {
 }
 
 .project-card:hover {
-  @apply bg-[#3c3c3c] p-5 shadow-lg flex flex-col items-center text-center min-w-[300px] max-w-[calc(100%/3-20px)];
+  @apply bg-[#3c3c3c] p-5 shadow-lg flex flex-col items-center text-center min-w-[280px] max-w-[calc(100%/3-20px)];
   @apply border shadow-[0px_0px_8px_8px_rgba(50,50,50,0.8)] rounded-2xl border-solid border-[#646464];
 }
 
