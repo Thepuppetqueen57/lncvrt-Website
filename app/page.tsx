@@ -14,7 +14,11 @@ const Home = () => {
 
   const fetchGitHubProjects = async () => {
     try {
-      const response = await axios.get("https://api.github.com/users/Lncvrt/repos");
+      const response = await axios.get("https://api.github.com/users/Lncvrt/repos", {
+        params: {
+          per_page: 2147483647
+        }
+      });
       const data = response.data;
 
       const filteredProjects = data.filter(
@@ -87,7 +91,7 @@ const Home = () => {
                     rel="noopener noreferrer"
                     className="underline-animation"
                   >
-                    <span style={{ color: project.archived ? "#D29922" : "inherit" }}>{project.name}</span>
+                    <span style={{ color: project.name === "Website" ? "#22C5D2" : project.archived ? "#D29922" : "inherit" }}>{project.name}{project.name == "Website" ? <span>&nbsp;👑</span> : null}</span>
                   </a>
                   {project.language ? <span style={{ fontSize: 14 }}>&nbsp;({project.language})</span> : null}
                 </h3>
