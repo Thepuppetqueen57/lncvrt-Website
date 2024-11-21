@@ -147,3 +147,7 @@ h6 {
   @apply w-[90%] sm:w-[75%] md:w-[50%] lg:w-[25%] mx-auto border shadow-[0px_0px_8px_8px_rgba(15,15,15,0.8)] rounded-[20px] border-solid border-[#323232] bg-[#1e1e1e] p-2 md:p-4 text-center mb-4;
   @apply mt-auto;
 }
+
+img {
+  @apply pointer-events-none;
+}
