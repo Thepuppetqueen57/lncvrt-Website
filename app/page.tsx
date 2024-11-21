@@ -85,7 +85,7 @@ const Home = () => {
                   <a
                     draggable="false"
                     href={
-                      isGitHubLinksToggled ? project.html_url || project.homepage : project.homepage || project.html_url
+                      project.name === 'Website' ? project.html_url : (isGitHubLinksToggled ? project.html_url || project.homepage : project.homepage || project.html_url)
                     }
                     target="_blank"
                     rel="noopener noreferrer"
