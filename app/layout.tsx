@@ -3,9 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import "./styles.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import { Inter } from "next/font/google";
+import { Lexend } from "next/font/google";
 
-const inter = Inter({
+const lexend = Lexend({
   subsets: ["latin"],
 });
 
@@ -14,7 +14,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <>
-      <html lang="en" className={inter.className}>
+      <html lang="en" className={lexend.className}>
         <head>
           <meta charSet="UTF-8" />
           <meta
