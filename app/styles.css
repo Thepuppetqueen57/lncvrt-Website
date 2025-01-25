@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 body {
   @apply text-[#e0e0e0] bg-[#121212] select-none m-0;
