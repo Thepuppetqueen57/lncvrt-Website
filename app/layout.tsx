@@ -22,13 +22,13 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             content="width=device-width, initial-scale=1.0"
           />
           <title>Lncvrt&apos;s Website</title>
-          <link rel="icon" href="/favicon-rounded.ico" />
+          <link rel="icon" href="https://cdn.lncvrt.xyz/pfp.png" />
           <meta property="og:title" content="Lncvrt's Website" />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="http://www.lncvrt.xyz/" />
           <meta
             property="og:image"
-            content="http://www.lncvrt.xyz/favicon.png"
+            content="https://cdn.lncvrt.xyz/pfp.png"
           />
           <meta
             property="og:description"
@@ -42,7 +42,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             <div className="top-bar-content">
               <Link draggable={false} href="/">
                 <Image
-                  src="/favicon.png"
+                  src="https://cdn.lncvrt.xyz/pfp.png"
                   alt="Icon"
                   className="icon"
                   width={40}
