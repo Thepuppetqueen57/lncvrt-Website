@@ -2,7 +2,7 @@ import { GetServerSideProps } from 'next';
 
 export const getServerSideProps: GetServerSideProps = async () => ({
     redirect: {
-        destination: "https://discord.gg/u6ptCvBwqE",
+        destination: "https://discord.gg/v9hbtFuHfK",
         permanent: false,
     },
 });
