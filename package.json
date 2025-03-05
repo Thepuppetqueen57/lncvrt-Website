@@ -1,34 +1,31 @@
 {
-    "name": "lncvrt-website",
-    "version": "1.0.0",
-    "private": false,
-    "license": "MIT",
-    "scripts": {
-        "dev": "next dev",
-        "build": "next build",
-        "start": "next start",
-        "lint": "next lint"
-    },
-    "dependencies": {
-        "@fortawesome/fontawesome-free": "6.7.2",
-        "@vercel/blob": "0.27.1",
-        "axios": "^1.7.9",
-        "next": "15.1.7",
-        "node-fetch": "3.3.2",
-        "react": "19.0.0",
-        "react-dom": "19.0.0",
-        "react-use-lanyard": "0.3.2"
-    },
-    "devDependencies": {
-        "@tailwindcss/postcss": "^4.0.8",
-        "@types/node": "22.13.5",
-        "@types/react": "19.0.10",
-        "@types/react-dom": "19.0.4",
-        "autoprefixer": "10.4.20",
-        "eslint": "9.21.0",
-        "eslint-config-next": "15.1.7",
-        "postcss": "^8.5.3",
-        "tailwindcss": "^4.0.8",
-        "typescript": "5.7.3"
-    }
+  "name": "lncvrt-website",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.7.2",
+    "axios": "^1.8.1",
+    "next": "^15.2.1",
+    "node-fetch": "^3.3.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-use-lanyard": "^0.3.2"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.0",
+    "@tailwindcss/postcss": "^4.0.10",
+    "@types/node": "^22.13.9",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "eslint": "^9.21.0",
+    "eslint-config-next": "15.2.1",
+    "tailwindcss": "^4.0.10",
+    "typescript": "^5.8.2"
+  }
 }
