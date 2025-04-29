@@ -17,23 +17,23 @@ const DiscordCard: React.FC = () => {
   const customStatus = status?.activities?.find(activity => activity.id === "custom");
 
   const fetchGitHubProjects = async () => {
-      try {
-          const response = await axios.get(
-              "https://api.github.com/users/Lncvrt"
-          );
-          const data = response.data.bio;
+    try {
+      const response = await axios.get(
+        "https://api.github.com/users/Lncvrt"
+      );
+      const data = response.data.bio;
 
-          setBio(data);
-      } catch {
-          setBio("N/A")
-      }
+      setBio(data);
+    } catch {
+      setBio("N/A")
+    }
   };
 
   useEffect(() => {
-      if (!hasFetched.current) {
-          fetchGitHubProjects();
-          hasFetched.current = true;
-      }
+    if (!hasFetched.current) {
+      fetchGitHubProjects();
+      hasFetched.current = true;
+    }
   }, []);
 
   useEffect(() => {
@@ -98,21 +98,21 @@ const DiscordCard: React.FC = () => {
   };
 
   const isEmoji = (input: string) => {
-      const emojiRegex = /\p{Emoji}/u;
-      return emojiRegex.test(input);
+    const emojiRegex = /\p{Emoji}/u;
+    return emojiRegex.test(input);
   }
 
   const renderActivities = () => {
     if (
-        !status?.activities ||
-        status.activities.length === 0 ||
-        (status.activities.length === 1 &&
-            ["spotify:1", "custom"].includes(status.activities[0].id)) ||
-        (status.activities.length === 2 &&
-            ["spotify:1", "custom"].includes(status.activities[0].id) &&
-            ["spotify:1", "custom"].includes(status.activities[1].id))
+      !status?.activities ||
+      status.activities.length === 0 ||
+      (status.activities.length === 1 &&
+        ["spotify:1", "custom"].includes(status.activities[0].id)) ||
+      (status.activities.length === 2 &&
+        ["spotify:1", "custom"].includes(status.activities[0].id) &&
+        ["spotify:1", "custom"].includes(status.activities[1].id))
     ) {
-        return null;
+      return null;
     }
 
     return (
@@ -132,7 +132,7 @@ const DiscordCard: React.FC = () => {
                     quality={100}
                     className="activity-icon"
                     draggable={false}
-                    style={{filter: activity.assets?.large_image ? "none" : "invert(1)"}}
+                    style={{ filter: activity.assets?.large_image ? "none" : "invert(1)" }}
                   />
                   {activity.assets?.small_image && (
                     <Image

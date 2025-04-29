@@ -78,12 +78,7 @@ body {
 }
 
 .contact-info svg {
-    @apply mr-2 h-6 w-6 text-xl text-white;
-}
-
-.contact-info span,
-.contact-info a {
-    @apply ml-1;
+    @apply mr-2 inline h-6 w-6 text-xl text-white;
 }
 
 .contact-info a {

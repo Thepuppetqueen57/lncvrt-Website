@@ -12,39 +12,39 @@ const Contact = () => {
         <p>Feel free to reach out to me via the following methods:</p>
         <div className="contact-info">
           <p>
-            <FontAwesomeIcon icon={faDiscord} className="inline mr-2" />
+            <FontAwesomeIcon icon={faDiscord} />
             Discord: <span className="underline-animation">@lncvrt</span>
           </p>
           <p>
-            <FontAwesomeIcon icon={faDiscord} className="inline mr-2" />
+            <FontAwesomeIcon icon={faDiscord} />
             Discord Server: <Link prefetch={false} draggable={false} href="/discord" className="underline-animation" target="_blank">click here</Link>
           </p>
           <p>
-            <FontAwesomeIcon icon={faEnvelope} className="inline mr-2" />
+            <FontAwesomeIcon icon={faEnvelope} />
             Email: <Link draggable={false} href="mailto:lncvrtreal@gmail.com" className="underline-animation" target="_blank">lncvrtreal@gmail.com</Link>
           </p>
           <p>
-            <FontAwesomeIcon icon={faTwitter} className="inline mr-2" />
+            <FontAwesomeIcon icon={faTwitter} />
             Twitter: <Link draggable={false} href="https://x.com/lncvrt" className="underline-animation" target="_blank">@lncvrt</Link>
           </p>
           <p>
-            <FontAwesomeIcon icon={faReddit} className="inline mr-2" />
+            <FontAwesomeIcon icon={faReddit} />
             Reddit: <Link draggable={false} href="https://www.reddit.com/user/XytrizaReal/" className="underline-animation" target="_blank">@XytrizaReal</Link>
           </p>
           <p>
-            <FontAwesomeIcon icon={faGithub} className="inline mr-2" />
+            <FontAwesomeIcon icon={faGithub} />
             GitHub: <Link draggable={false} href="https://github.com/Lncvrt" className="underline-animation" target="_blank">@lncvrt</Link>
           </p>
           <p>
-            <FontAwesomeIcon icon={faYoutube} className="inline mr-2" />
+            <FontAwesomeIcon icon={faYoutube} />
             YouTube: <Link draggable={false} href="https://www.youtube.com/@Lncvrt" className="underline-animation" target="_blank">@Lncvrt</Link>
           </p>
           <p>
-            <FontAwesomeIcon icon={faSteam} className="inline mr-2" />
+            <FontAwesomeIcon icon={faSteam} />
             Steam: <Link draggable={false} href="https://steamcommunity.com/id/lncvrt/" className="underline-animation" target="_blank">lncvrt</Link>
           </p>
           <p>
-            <FontAwesomeIcon icon={faSpotify} className="inline mr-2" />
+            <FontAwesomeIcon icon={faSpotify} />
             Spotify: <Link draggable={false} href="https://open.spotify.com/user/31uqd5hcdnaq2zlqrvy7sd4lb2iy" className="underline-animation" target="_blank">Lncvrt</Link>
           </p>
         </div>

@@ -1,4 +1,4 @@
-export const copyToClipboard = async (text: string | undefined ) => {
+export const copyToClipboard = async (text: string | undefined) => {
     if (text == undefined) {
         return;
     }

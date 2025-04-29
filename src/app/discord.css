@@ -1,73 +1,76 @@
 @import "tailwindcss";
 
 .icon-and-name {
-  @apply flex items-center justify-center;
+    @apply flex items-center justify-center;
 }
 
 .user-info {
-  @apply text-left;
+    @apply text-left;
 }
 
 .discord-name {
-  @apply text-2xl font-semibold;
+    @apply text-2xl font-semibold;
 }
 
 .discord-info {
-  @apply text-base;
+    @apply text-base;
 }
 
 .activty-card {
-  @apply bg-[#2e2e2e] p-4 rounded-lg mt-4;
-  @apply text-left;
+    @apply bg-[#2e2e2e] mt-4 rounded-lg p-4;
+    @apply text-left;
 }
 
 .activty-title {
-  @apply text-xl font-bold mb-2;
+    @apply mb-2 text-xl font-bold;
 }
 
 .activity-icon {
-  @apply rounded-lg;
+    @apply rounded-lg;
 }
 
 .activity-details {
-  @apply text-sm;
+    @apply text-sm;
 }
 
 .activity-item {
-  @apply relative mt-4 border-b border-gray-600 pb-2 last:border-none whitespace-nowrap overflow-auto;
+    @apply relative mt-4 overflow-auto whitespace-nowrap border-b border-gray-600
+      pb-2 last:border-none;
 }
 
 .small-activity-image {
-  @apply absolute w-9 h-9 rounded-[50%] left-[70px] top-[70px] border-2 border-solid border-[#2e2e2e];
+    @apply rounded-[50%] left-[70px] top-[70px] border-[#2e2e2e] absolute h-9 w-9
+      border-2 border-solid;
 }
 
 .activity-name {
-  @apply text-lg font-semibold;
+    @apply text-lg font-semibold;
 }
 
 .activity-time {
-  @apply text-xs font-bold text-green-500;
+    @apply text-xs font-bold text-green-500;
 }
 
 .status-card {
-  @apply absolute w-6 h-6 rounded-[50%] border-[4px] border-solid border-[#1e1e1e] bg-white;
-  bottom: 10%;
-  left: 60%;
-  transition: background-color 0.3s ease;
+    @apply rounded-[50%] border-[4px] border-[#1e1e1e] absolute h-6 w-6 border-solid
+      bg-white;
+    bottom: 10%;
+    left: 60%;
+    transition: background-color 0.3s ease;
 }
 
 .status-card.online {
-  @apply bg-[#23a55a]
+    @apply bg-[#23a55a];
 }
 
 .status-card.idle {
-  @apply bg-[#f0b232]
+    @apply bg-[#f0b232];
 }
 
 .status-card.dnd {
-  @apply bg-[#f23f43]
+    @apply bg-[#f23f43];
 }
 
 .status-card.offline {
-  @apply bg-[#80848e]
+    @apply bg-[#80848e];
 }
