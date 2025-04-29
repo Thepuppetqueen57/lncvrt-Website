@@ -1,111 +1,121 @@
 @import "tailwindcss";
 
 body {
-  @apply text-[#e0e0e0] bg-[#121212] select-none m-0;
+    @apply text-[#e0e0e0] bg-[#121212] m-0 select-none;
 }
 
 .top-bar {
-  @apply w-[calc(100%-32px)] md:w-[65%] border shadow-[0px_0px_8px_8px_rgba(15,15,15,0.8)] items-center mx-auto my-[15px] rounded-[20px] border-solid border-[#323232];
-  @apply bg-[#1e1e1e] p-4 md:px-8 shadow-md;
+    @apply w-[calc(100%-32px)] shadow-[0px_0px_8px_8px_rgba(15,15,15,0.8)] my-[15px]
+        rounded-[20px] border-[#323232] mx-auto items-center border border-solid
+      md:w-[65%];
+    @apply bg-[#1e1e1e] p-4 shadow-md md:px-8;
 }
 
 .top-bar-content {
-  @apply flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto;
+    @apply mx-auto flex max-w-7xl flex-col items-center justify-between md:flex-row;
 }
 
 .icon {
-  @apply rounded-full mb-4 md:mb-0 mr-4;
+    @apply mr-4 mb-4 rounded-full md:mb-0;
 }
 
 .nav-links {
-  @apply flex gap-5;
+    @apply flex gap-5;
 }
 
 .nav-links a {
-  @apply text-gray-200 no-underline font-bold transition-colors;
+    @apply font-bold text-gray-200 no-underline transition-colors;
 }
 
 .nav-links a:hover {
-  @apply text-gray-400;
+    @apply text-gray-400;
 }
 
 .main-content {
-  @apply max-w-4xl mx-auto p-5 text-center flex-grow;
+    @apply mx-auto max-w-4xl flex-grow p-5 text-center;
 }
 
 .container-section {
-  @apply w-[90%] max-w-[1200px] border shadow-[0px_0px_8px_8px_rgba(15,15,15,0.8)] rounded-2xl border-solid border-[#323232];
-  @apply bg-[#1e1e1e] p-5 backdrop-blur-sm shadow-lg text-center mx-auto;
+    @apply w-[90%] max-w-[1200px] shadow-[0px_0px_8px_8px_rgba(15,15,15,0.8)]
+      border-[#323232] rounded-2xl border border-solid;
+    @apply bg-[#1e1e1e] mx-auto p-5 text-center shadow-lg backdrop-blur-sm;
 }
 
 .projects-container {
-  @apply flex flex-wrap justify-center gap-7;
+    @apply flex flex-wrap justify-center gap-7;
 }
 
 .project-card {
-  @apply transition-all duration-[0.5s] hover:scale-105;
-  @apply border shadow-[0px_0px_8px_8px_rgba(30,30,30,0.8)] rounded-2xl border-solid border-[#464646];
-  @apply bg-[#323232] p-5 shadow-lg flex flex-col items-center text-center min-w-[280px] max-w-[calc(100%/3-20px)];
+    @apply duration-[0.5s] transition-all hover:scale-105;
+    @apply shadow-[0px_0px_8px_8px_rgba(30,30,30,0.8)] border-[#464646] rounded-2xl
+      border border-solid;
+    @apply bg-[#323232] min-w-[280px] max-w-[calc(100%/3-20px)] flex flex-col
+      items-center p-5 text-center shadow-lg;
 }
 
 .project-card a,
 .project-card h3 {
-  @apply text-white no-underline font-bold text-xl;
+    @apply text-xl font-bold text-white no-underline;
 }
 
 .project-card:hover {
-  @apply bg-[#3c3c3c] p-5 shadow-lg flex flex-col items-center text-center min-w-[280px] max-w-[calc(100%/3-20px)];
-  @apply border shadow-[0px_0px_8px_8px_rgba(50,50,50,0.8)] rounded-2xl border-solid border-[#646464];
+    @apply bg-[#3c3c3c] min-w-[280px] max-w-[calc(100%/3-20px)] flex flex-col
+      items-center p-5 text-center shadow-lg;
+    @apply shadow-[0px_0px_8px_8px_rgba(50,50,50,0.8)] border-[#646464] rounded-2xl
+      border border-solid;
 }
 
 .project-description {
-  @apply max-w-[200px] text-center;
+    @apply max-w-[200px] text-center;
 }
 
 .contact-info {
-  @apply mt-6;
+    @apply mt-6;
 }
 
 .contact-info p {
-  @apply text-base;
+    @apply text-base;
 }
 
-.contact-info i {
-  @apply text-xl mr-2 text-white;
+.contact-info svg {
+    @apply mr-2 h-6 w-6 text-xl text-white;
 }
 
 .contact-info span,
 .contact-info a {
-  @apply ml-1;
+    @apply ml-1;
 }
 
 .contact-info a {
-  @apply text-white no-underline;
+    @apply text-white no-underline;
 }
 
 .contact-info a:hover {
-  @apply text-gray-400;
+    @apply text-gray-400;
 }
 
 .underline-animation {
-  @apply relative after:content-[""] after:block after:h-px after:absolute after:w-0 after:-translate-x-2/4 after:transition-[width] after:duration-[0.3s] after:left-2/4 after:bottom-0 hover:cursor-pointer hover:after:w-full;
-  @apply no-underline font-semibold relative inline-block transition-colors;
+    @apply relative after:content-[""] after:block after:h-px after:absolute
+        after:w-0 after:-translate-x-2/4 after:transition-[width] after:duration-[0.3s]
+      after:left-2/4 after:bottom-0 hover:cursor-pointer hover:after:w-full;
+    @apply relative inline-block font-semibold no-underline transition-colors;
 }
 
 .underline-animation::after {
-  @apply bg-white;
+    @apply bg-white;
 }
 
 .underline-animation:hover {
-  @apply text-white;
+    @apply text-white;
 }
 
 .rounded-button {
-  @apply bg-[#450778] text-white border-none rounded-lg px-6 py-3 text-lg cursor-pointer transition-colors backdrop-blur-sm inline-block;
+    @apply bg-[#450778] inline-block cursor-pointer rounded-lg border-none px-6 py-3
+      text-lg text-white backdrop-blur-sm transition-colors;
 }
 
 .rounded-button:hover {
-  @apply bg-gray-400;
+    @apply bg-gray-400;
 }
 
 h1,
@@ -114,38 +124,40 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-bold;
+    @apply font-bold;
 }
 
 h1 {
-  @apply text-2xl;
+    @apply text-2xl;
 }
 
 h2 {
-  @apply text-xl;
+    @apply text-xl;
 }
 
 h3 {
-  @apply text-lg;
+    @apply text-lg;
 }
 
 h4 {
-  @apply text-base;
+    @apply text-base;
 }
 
 h5 {
-  @apply text-sm;
+    @apply text-sm;
 }
 
 h6 {
-  @apply text-xs;
+    @apply text-xs;
 }
 
 .footer {
-  @apply w-[90%] sm:w-[75%] md:w-[50%] lg:w-[25%] mx-auto border shadow-[0px_0px_8px_8px_rgba(15,15,15,0.8)] rounded-[20px] border-solid border-[#323232] bg-[#1e1e1e] p-2 md:p-4 text-center mb-4;
-  @apply mt-auto;
+    @apply w-[90%] shadow-[0px_0px_8px_8px_rgba(15,15,15,0.8)] rounded-[20px]
+        border-[#323232] bg-[#1e1e1e] mx-auto mb-4 border border-solid p-2 text-center
+      sm:w-[75%] md:w-[50%] md:p-4 lg:w-[25%];
+    @apply mt-auto;
 }
 
 img {
-  @apply pointer-events-none;
+    @apply pointer-events-none;
 }

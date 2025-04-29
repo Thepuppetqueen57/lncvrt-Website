@@ -1,33 +1,10 @@
-"use client";
-
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Link from "next/link";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faDiscord, faGithub, faReddit, faSpotify, faSteam, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 const Contact = () => {
-  const [isShiftPressed, setIsShiftPressed] = useState(false);
-
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Shift") {
-        setIsShiftPressed(true);
-      }
-    };
-
-    const handleKeyUp = (e: KeyboardEvent) => {
-      if (e.key === "Shift") {
-        setIsShiftPressed(false);
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    window.addEventListener("keyup", handleKeyUp);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-      window.removeEventListener("keyup", handleKeyUp);
-    };
-  }, []);
-
   return (
     <div className="container">
       <section className="container-section">
@@ -35,60 +12,66 @@ const Contact = () => {
         <p>Feel free to reach out to me via the following methods:</p>
         <div className="contact-info">
           <p>
-            <i className="fab fa-discord"></i>
+            <FontAwesomeIcon icon={faDiscord} className="inline mr-2" />
             Discord: <span className="underline-animation">@lncvrt</span>
             &nbsp;(I will reply quickly)
           </p>
           <p>
-            <i className="fab fa-discord"></i>
+            <FontAwesomeIcon icon={faDiscord} className="inline mr-2" />
             Discord Server:
-            <Link prefetch={false} draggable={false} href="/discord" className="underline-animation">
+            <Link prefetch={false} draggable={false} href="/discord" className="underline-animation" target="_blank">
               click here
             </Link>
             &nbsp;
           </p>
           <p>
-            <i className="fas fa-envelope"></i>
+            <FontAwesomeIcon icon={faEnvelope} className="inline mr-2" />
             Email:
-            <Link draggable={false} href="mailto:lncvrtreal@gmail.com" className="underline-animation">
+            <Link draggable={false} href="mailto:lncvrtreal@gmail.com" className="underline-animation" target="_blank">
               lncvrtreal@gmail.com
             </Link>
             &nbsp;(May take longer to reply)
           </p>
-          <p>Below this is socials. I will likely not reply there.</p>
           <p>
-            <i className={isShiftPressed ? "fab fa-twitter" : "fab fa-x-twitter"}></i>
-            {isShiftPressed ? "Twitter:" : "X:"}
-            <Link draggable={false} href="https://x.com/lncvrt" className="underline-animation">
+            <FontAwesomeIcon icon={faTwitter} className="inline mr-2" />
+            Twitter:
+            <Link draggable={false} href="https://x.com/lncvrt" className="underline-animation" target="_blank">
               @lncvrt
             </Link>
           </p>
           <p>
-            <i className="fab fa-reddit"></i>
+            <FontAwesomeIcon icon={faReddit} className="inline mr-2" />
             Reddit:
-            <Link draggable={false} href="https://www.reddit.com/user/XytrizaReal/" className="underline-animation">
+            <Link draggable={false} href="https://www.reddit.com/user/XytrizaReal/" className="underline-animation" target="_blank">
               @XytrizaReal
             </Link>
           </p>
           <p>
-            <i className="fab fa-github"></i>
+            <FontAwesomeIcon icon={faGithub} className="inline mr-2" />
             GitHub:
-            <Link draggable={false} href="https://github.com/Lncvrt" className="underline-animation">
+            <Link draggable={false} href="https://github.com/Lncvrt" className="underline-animation" target="_blank">
               @lncvrt
             </Link>
           </p>
           <p>
-            <i className="fab fa-youtube"></i>
+            <FontAwesomeIcon icon={faYoutube} className="inline mr-2" />
             YouTube:
-            <Link draggable={false} href="https://www.youtube.com/@Lncvrt" className="underline-animation" >
+            <Link draggable={false} href="https://www.youtube.com/@Lncvrt" className="underline-animation" target="_blank">
               @Lncvrt
             </Link>
           </p>
           <p>
-            <i className="fab fa-steam"></i>
+            <FontAwesomeIcon icon={faSteam} className="inline mr-2" />
             Steam:
-            <Link draggable={false} href="https://steamcommunity.com/id/lncvrt/" className="underline-animation">
+            <Link draggable={false} href="https://steamcommunity.com/id/lncvrt/" className="underline-animation" target="_blank">
               lncvrt
+            </Link>
+          </p>
+          <p>
+            <FontAwesomeIcon icon={faSpotify} className="inline mr-2" />
+            Spotify:
+            <Link draggable={false} href="https://open.spotify.com/user/31uqd5hcdnaq2zlqrvy7sd4lb2iy" className="underline-animation" target="_blank">
+              Lncvrt
             </Link>
           </p>
         </div>

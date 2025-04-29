@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import "./styles.css";
-import "@fortawesome/fontawesome-free/css/all.min.css";
 import { Lexend } from "next/font/google";
 
 const lexend = Lexend({
