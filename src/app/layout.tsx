@@ -30,7 +30,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         <body>
           <header className="top-bar">
             <div className="top-bar-content">
-              <Link draggable={false} href="/">
+              <Link draggable={false} href="/" className="flex items-center">
                 <Image
                   src="https://cdn.lncvrt.xyz/pfp.png"
                   alt="Icon"
@@ -39,6 +39,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                   height={40}
                   draggable={false}
                 />
+                <p className="underline-animation">Lncvrt&apos;s Website</p>
               </Link>
               <nav className="nav-links">
                 <Link draggable={false} href="/" className="underline-animation">
@@ -55,7 +56,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           </header>
           <main className="main-content">{children}</main>
           <footer className="footer">
-            <p>&copy; {currentYear} Lncvrt. All rights reserved.</p>
+            <p>&copy; 2024 - {currentYear} Lncvrt. All rights reserved.</p>
           </footer>
         </body>
       </html>
