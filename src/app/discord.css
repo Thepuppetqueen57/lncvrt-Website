@@ -17,8 +17,8 @@
 }
 
 .activty-card {
-    @apply bg-[#2e2e2e] mt-4 rounded-lg p-4;
-    @apply text-left;
+    @apply border-[#424242] bg-[#1e1e1e] mt-4 rounded-2xl border border-solid p-4
+      text-left;
 }
 
 .activty-title {
@@ -34,12 +34,12 @@
 }
 
 .activity-item {
-    @apply relative mt-4 overflow-auto whitespace-nowrap border-b border-gray-600
+    @apply border-[#424242] relative mt-4 overflow-auto whitespace-nowrap border-b
       pb-2 last:border-none;
 }
 
 .small-activity-image {
-    @apply rounded-[50%] left-[70px] top-[70px] border-[#2e2e2e] absolute h-9 w-9
+    @apply rounded-[50%] left-[70px] top-[70px] border-[#424242] absolute h-9 w-9
       border-2 border-solid;
 }
 
