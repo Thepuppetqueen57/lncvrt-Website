@@ -5,9 +5,8 @@ body {
 }
 
 .top-bar {
-    @apply w-[calc(100%-32px)] shadow-[0px_0px_8px_8px_rgba(15,15,15,0.8)] my-[15px]
-        rounded-[20px] border-[#2e2e2e] mx-auto items-center border border-solid
-      md:w-[65%];
+    @apply w-[calc(100%-32px)] my-[15px] rounded-[20px] border-[#2e2e2e] mx-auto
+      items-center border border-solid md:w-[65%];
     @apply bg-[#121212] p-4 shadow-md md:px-8;
 }
 
@@ -46,8 +45,7 @@ body {
 
 .project-card {
     @apply duration-[0.5s] transition-all hover:scale-105;
-    @apply shadow-[0px_0px_8px_8px_rgba(30,30,30,0.8)] border-[#424242] rounded-2xl
-      border border-solid;
+    @apply border-[#424242] rounded-2xl border border-solid;
     @apply bg-[#1e1e1e] min-w-[280px] max-w-[calc(100%/3-20px)] flex flex-col
       items-center p-5 text-center shadow-lg;
 }
