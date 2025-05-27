@@ -15,7 +15,7 @@ const projects: Project[] = [
   {
     name: "Geometry Rays",
     url: "https://georays.puppet57.xyz/",
-    description: "Another geometry dash fan game made by Puppet (not the creator, I contribute to it)",
+    description: "Another geometry dash fan game made by Puppet (I'm not the creator, I contribute to it)",
   },
   {
     name: "XPS",
