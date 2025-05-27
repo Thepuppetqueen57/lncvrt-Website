@@ -122,7 +122,7 @@ const DiscordCard: React.FC = () => {
         <div className="activty-title">Current Activities</div>
         <div className="mt-[-8px]">
           {status.activities
-            .filter((activity) => activity.id !== "spotify:1")
+            .filter((activity) => activity.id !== "spotify:1" && activity.name !== "Custom Status")
             .map((activity) => (
               <div key={activity.id} className="activity-item">
                 <div className="flex items-center gap-4">
