@@ -1,113 +1,66 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-"use client";
-
-import React, { useState, useEffect, useRef } from "react";
 import DiscordCard from "./discord";
-import axios from "axios";
+
+type Project = {
+  name: string;
+  url: string;
+  description: string;
+};
+
+const projects: Project[] = [
+  {
+    name: "Triangles",
+    url: "https://triangles.lncvrt.xyz/",
+    description: "A geometry dash fan game made in Unity, with accounts, online levels, editor and more!",
+  },
+  {
+    name: "Geometry Rays",
+    url: "https://georays.puppet57.xyz/",
+    description: "Another geometry dash fan game made by Puppet (not the creator, I contribute to it)",
+  },
+  {
+    name: "XPS",
+    url: "https://xps.lncvrt.xyz/",
+    description: "The original Xytriza's GDPS server! It has been brought back for a while now and it supports Windows, MacOS, Android (+ custom geode launcher), and iOS",
+  },
+  {
+    name: "Geometry Tools",
+    url: "https://geometrytools.lncvrt.xyz/",
+    description: "A website with tools & info about Geometry Dash",
+  },
+  {
+    name: "Name a color",
+    url: "https://nameacolor.lncvrt.xyz/",
+    description: "A website where you can name any color",
+  },
+];
 
 const Home = () => {
-  const [isGitHubLinksToggled, setIsGitHubLinksToggled] = useState(false);
-  const [shiftKeyPressedCount, setShiftKeyPressedCount] = useState(0);
-  const [projects, setProjects] = useState<any[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const hasFetched = useRef(false);
-
-  const fetchGitHubProjects = async () => {
-    try {
-      const response = await axios.get("https://api.github.com/users/Lncvrt/repos", {
-        params: {
-          per_page: 2147483647
-        }
-      });
-      const data = response.data;
-
-      const filteredProjects = data.filter(
-        (repo: any) => !repo.description?.startsWith("[H]")
-      );
-
-      setProjects(filteredProjects);
-    } catch (error: any) {
-      setError(`Failed to get projects: ${error.message || "No error was provided"}`);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    if (!hasFetched.current) {
-      fetchGitHubProjects();
-      hasFetched.current = true;
-    }
-  }, []);
-
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Shift") {
-        setShiftKeyPressedCount((prevCount) => prevCount + 1);
-      }
-    };
-
-    const handleKeyUp = (e: KeyboardEvent) => {
-      if (e.key === "Shift") {
-        setShiftKeyPressedCount(0);
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    window.addEventListener("keyup", handleKeyUp);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-      window.removeEventListener("keyup", handleKeyUp);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (shiftKeyPressedCount === 1) {
-      setIsGitHubLinksToggled((prevToggled) => !prevToggled);
-    }
-  }, [shiftKeyPressedCount]);
-
   return (
     <div className="container">
       <DiscordCard />
       <section className="container-section" id="projects">
         <h2 style={{ marginBottom: "18px" }}>My Projects</h2>
         <div className="projects-container">
-          {isLoading ? (
-            <p>Loading...</p>
-          ) : error ? (
-            <p>{error}</p>
-          ) : (
-            projects.map((project) => (
-              <div className="project-card" key={project.id}>
-                <h3>
-                  <a
-                    draggable="false"
-                    href={
-                      project.name === 'Website' ? project.html_url : (isGitHubLinksToggled ? project.html_url || project.homepage : project.homepage || project.html_url)
-                    }
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline-animation"
-                  >
-                    <span style={{ color: project.name === "Website" ? "#22C5D2" : project.archived ? "#D29922" : "inherit" }}>{project.name}{project.name == "Website" ? <span>&nbsp;👑</span> : null}</span>
-                  </a>
-                  {project.language ? <span style={{ fontSize: 14 }}>&nbsp;({project.language})</span> : null}
-                </h3>
-                <div className="project-description">
-                  <p>{project.description}</p>
-                </div>
+          {projects.map((project) => (
+            <div className="project-card" key={project.name}>
+              <h3>
+                <a
+                  draggable="false"
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline-animation"
+                >
+                  <span>{project.name}</span>
+                </a>
+              </h3>
+              <div className="project-description">
+                <p>{project.description}</p>
               </div>
-            ))
-          )}
+            </div>
+          ))}
+          <p>I create a lot of projects and don&apos;t finish them, I will create more after I have released 1.0 of <a href="http://triangles.lncvrt.xyz/" className="underline-animation">Triangles</a>.</p>
         </div>
-        {isGitHubLinksToggled && (
-          <p style={{ marginTop: "25px" }}>
-            GitHub links for projects enabled.
-          </p>
-        )}
       </section>
     </div>
   );
