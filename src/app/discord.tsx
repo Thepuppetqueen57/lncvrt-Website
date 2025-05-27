@@ -197,12 +197,12 @@ const DiscordCard: React.FC = () => {
             />
             <div className="activity-details">
               <p className="activity-name">
-                <Link draggable={false} className="underline-animation" href={`https://open.spotify.com/search/${encodeURIComponent(status.spotify.song)}/tracks`} target="_blank">
+                <Link draggable={false} className="underline-animation" href={`https://open.spotify.com/track/${status.spotify.track_id}`} target="_blank">
                   {status.spotify.song}
                 </Link></p>
               <p>
-                <Link draggable={false} className="underline-animation" style={{ fontWeight: "normal" }} href={`https://open.spotify.com/search/${encodeURIComponent(status.spotify.artist)}/artists`} target="_blank">
-                  <span className="text-white">by</span> {status.spotify.artist}
+                <Link draggable={false} className="underline-animation" style={{ fontWeight: "normal" }} href={`https://open.spotify.com/search/${encodeURIComponent(status.spotify.artist.split(";")[0])}/artists`} target="_blank">
+                  <span className="text-white">by</span> {status.spotify.artist.replace(";", ",")}
                 </Link>
               </p>
               <p>
