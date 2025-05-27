@@ -5,7 +5,7 @@ body {
 }
 
 .top-bar {
-    @apply w-[calc(100%-32px)] my-[15px] rounded-[20px] border-[#2e2e2e] mx-auto
+    @apply w-[calc(100%-32px)] my-[15px] rounded-2xl border-[#2e2e2e] mx-auto
       items-center border border-solid md:w-[65%];
     @apply bg-[#121212] p-4 shadow-md md:px-8;
 }
@@ -15,7 +15,7 @@ body {
 }
 
 .icon {
-    @apply mr-4 mb-4 rounded-full md:mb-0;
+    @apply mr-4 mb-4 md:mb-0;
 }
 
 .nav-links {

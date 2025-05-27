@@ -4,6 +4,8 @@ import "./discord.css";
 import { useLanyard } from "react-use-lanyard";
 import Link from "next/link";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGamepad, faHeadphones } from "@fortawesome/free-solid-svg-icons";
 
 const DiscordCard: React.FC = () => {
   const [timers, setTimers] = useState<{ [key: string]: number }>({});
@@ -133,6 +135,7 @@ const DiscordCard: React.FC = () => {
                     className="activity-icon"
                     draggable={false}
                     style={{ filter: activity.assets?.large_image ? "none" : "invert(1)" }}
+                    unoptimized={true}
                   />
                   {activity.assets?.small_image && (
                     <Image
@@ -143,6 +146,7 @@ const DiscordCard: React.FC = () => {
                       quality={100}
                       className="small-activity-image"
                       draggable={false}
+                      unoptimized={true}
                     />
                   )}
                   <div className="activity-details">
@@ -153,7 +157,7 @@ const DiscordCard: React.FC = () => {
                     {activity.state && <p>{activity.state}</p>}
                     {activity.timestamps?.start && (
                       <p className="activity-time">
-                        <i className="fa-solid fa-gamepad mr-1"></i>
+                        <FontAwesomeIcon icon={faGamepad} className="mr-1" />
                         {formatElapsedTime(timers[activity.id] || 0)}
                       </p>
                     )}
@@ -187,6 +191,7 @@ const DiscordCard: React.FC = () => {
               quality={100}
               className="activity-icon"
               draggable={false}
+              unoptimized={true}
             />
             <div className="activity-details">
               <p className="activity-name">
@@ -204,7 +209,7 @@ const DiscordCard: React.FC = () => {
                 </Link>
               </p>
               <p className="activity-time">
-                <i className="fa-solid fa-headphones mr-1"></i>
+                <FontAwesomeIcon icon={faHeadphones} className="mr-1" />
                 {`${formattedStartTime} - ${formattedEndTime}`}
               </p>
             </div>
@@ -231,6 +236,7 @@ const DiscordCard: React.FC = () => {
                   width={90}
                   height={90}
                   draggable={false}
+                  unoptimized={true}
                 />
                 <i className={`status-card ${status?.discord_status}`}></i>
               </div>
