@@ -32,6 +32,11 @@ const projects: Project[] = [
     url: "https://nameacolor.lncvrt.xyz/",
     description: "A website where you can name any color",
   },
+  {
+    name: "Berry Dash",
+    url: "https://berrydash.lncvrt.xyz/",
+    description: "A simple game where you catch berries to gain score",
+  },
 ];
 
 const Home = () => {
